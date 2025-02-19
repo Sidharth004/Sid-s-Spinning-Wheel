@@ -1,6 +1,3 @@
-
-// }
-
 // SpinningCoil.tsx
 import { useRef } from "react"
 import { useFrame } from "@react-three/fiber"
@@ -11,6 +8,7 @@ interface SpinningCoilProps {
   onDotClick: (index: number) => void
 }
 
+// Match these labels with the actual display text you want
 const dotLabels = ["About", "Experience", "Projects", "GitHub", "Contact"]
 
 export function SpinningCoil({ onDotClick }: SpinningCoilProps) {
