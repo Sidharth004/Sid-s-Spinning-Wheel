@@ -6,14 +6,98 @@ import { SpinningCoil } from "./SpinningCoil"
 import { CentralObject } from "./CentralObject"
 import { Modal } from "@/components/Modal" 
 
-type DotInfoKey = 'about' | 'experience' | 'projects' | 'github' | 'contact';
-const dotLabels: DotInfoKey[] = ['about', 'experience', 'projects', 'github', 'contact'];
+type DotInfoKey = 'writing' | 'experience' | 'projects' | 'github' | 'contact';
+const dotLabels: DotInfoKey[] = ['writing', 'experience', 'projects', 'github', 'contact'];
+
 
 const dotInfo = {
-  about: {
+  aboutMe: {
     title: "About Me",
-    content: "Your about content here...",
-    type: "default"
+    type: "about" as const,
+    content: {
+      mainContent: "**Hey, I'm Sidharth!** A 22-year-old CS Engineer with a deep love for crypto.\n\nIn my *tiny* 2.5-year journey in Web3, I've had the chance to wear multiple hats—ranging from development and research analysis to PM, growth, and BD. And honestly? I love them all.\n\nRight now, I'm diving deep into Growth and Product roles.\n\nI started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on state-aggregated chains like Push Chain and Solana (loving it so far!).\n\nThough crypto takes up ¾ of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:\n⚽ Playing football (*Man City for life!*)\n📺 Binge-watching *Suits*\n🚗 Going on long drives with my pals\n\nMy near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.",
+      socialLinks: {
+        solscan: "https://solscan.io/address/YOUR_SOL_WALLET_ADDRESS",
+        twitter: "https://twitter.com/multichain_sid",
+        telegram: "https://t.me/multichain_sid",
+        linkedin: "https://linkedin.com/in/your-profile"
+      }
+    }
+  },
+  writing: {
+    title: "Technical Writing",
+    type: "writing" as const,
+    content: {
+      professional: [
+        {
+          year: 2024,
+          blogs: [
+            {
+              title: "Understanding Proof of Stake and Push Chain",
+              url: "https://push.org/blog/understand-proof-of-stake-and-push-chain/",
+              label: "Explainer"
+            },
+            {
+              title: "Why Push Chain?",
+              url: "https://push.org/blog/why-push-chain/",
+              label: "Case Study & Research"
+            },
+            {
+              title: "How Wallets Use Push to Become a Super App",
+              url: "https://push.org/blog/how-wallets-use-push-to-become-a-super-app/",
+              label: "Case Study & Research"
+            },
+            {
+              title: "Interoperable Communications: Moving Across an Open Web with Push",
+              url: "https://push.org/blog/interoperable-communications-moving-across-an-open-web-with-push/",
+              label: "Case Study & Research"
+            }
+          ]
+        },
+        {
+          year: 2023,
+          blogs: [
+            {
+              title: "Modular vs Monolithic Blockchains",
+              url: "https://www.alchemy.com/overviews/modular-vs-monolithic-blockchains",
+              label: "Explainer"
+            },
+            {
+              title: "Permissionless vs Permissioned Blockchains",
+              url: "https://www.alchemy.com/overviews/permissionless-vs-permissioned-blockchains",
+              label: "Explainer"
+            },
+            {
+              title: "Solana Program Library",
+              url: "https://www.alchemy.com/overviews/solana-program-library",
+              label: "Tutorial"
+            }
+          ]
+        },
+        {
+          year: 2022,
+          blogs: [
+            {
+              title: "Polkadot vs Ethereum: The Full Comparison",
+              url: "https://vitto.cc/polkadot-vs-ethereum-the-full-comparison/",
+              label: "Explainer"
+            }
+          ]
+        }
+      ],
+      personal: [
+        {
+          title: "Understanding Push Protocol: A Web3 Communication Tale from A to P",
+          url: "https://medium.com/@kumthekarsid/understanding-push-protocol-a-web3-communication-tale-from-a-to-p-c0c29274211f",
+          label: "Explainer"
+        },
+        {
+          title: "The Google-Powered Blockchain Node Engine",
+          url: "https://medium.com/@kumthekarsid/the-google-powered-blockchain-node-engine-8009b33a3ef1",
+          label: "Explainer"
+        }
+      ]
+    }
   },
   experience: {
     title: "Professional Experience",
@@ -128,9 +212,10 @@ const dotInfo = {
 
 export default function SpinningCoilScene() {
   const [selectedDot, setSelectedDot] = useState<DotInfoKey | null>(null);
+  const [showAboutMe, setShowAboutMe] = useState(false);
 
   const handleDotClick = (index: number) => {
-    const keys: DotInfoKey[] = ['about', 'experience', 'projects', 'github', 'contact'];
+    const keys: DotInfoKey[] = ['writing', 'experience', 'projects', 'github', 'contact'];
     setSelectedDot(keys[index]);
   };
 
@@ -143,15 +228,15 @@ export default function SpinningCoilScene() {
       <spotLight position={[0, 5, 0]} intensity={0.5} penumbra={1} />
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <SpinningCoil onDotClick={handleDotClick} />
-        <CentralObject />
-        <Grid
+        <CentralObject onClick={() => setShowAboutMe(true)} />
+        {/* <Grid
           args={[30, 30]}
           cellSize={0.5}
           cellThickness={0.5}
           cellColor="#e0e0e0"
           fadeDistance={5}
           fadeStrength={1}
-        />
+        /> */}
       </group>
       <OrbitControls
         enableRotate={true}
@@ -172,7 +257,17 @@ export default function SpinningCoilScene() {
       content={selectedDot ? dotInfo[selectedDot].content : ""}
       type={selectedDot ? dotInfo[selectedDot].type : "default"}
     />
-  </>
+
+    {showAboutMe && (
+        <Modal
+          isOpen={showAboutMe}
+          onClose={() => setShowAboutMe(false)}
+          title={dotInfo.aboutMe.title}
+          type="about"
+          content={dotInfo.aboutMe.content}
+        />
+      )}
+    </>
   )
 }
   
