@@ -5,12 +5,14 @@ import { OrbitControls, Grid } from "@react-three/drei"
 import { SpinningCoil } from "./SpinningCoil"
 import { CentralObject } from "./CentralObject"
 import { Modal } from "@/components/Modal" 
+import { StarField } from './StarField'
 
 type DotInfoKey = 'writing' | 'experience' | 'projects' | 'github' | 'contact';
 const dotLabels: DotInfoKey[] = ['writing', 'experience', 'projects', 'github', 'contact'];
 
 
 const dotInfo = {
+ 
   aboutMe: {
     title: "About Me",
     type: "about" as const,
@@ -181,9 +183,9 @@ const dotInfo = {
     type: "default"
   },
   github: {
-    title: "GitHub",
-    content: "Your GitHub content here...",
-    type: "default"
+    title: "GitHub Activity",
+    type: "github" as const,
+    content: null
   },
   contact: {
     title: "Contact",
@@ -222,21 +224,22 @@ export default function SpinningCoilScene() {
 
   return (
     <>
-    <Canvas camera={{ position: [0, 4, 6], fov: 50 }} style={{ background: "white" }}>
+    <Canvas camera={{ position: [0, 8, 12], fov: 35, near: 0.1,far:1000 }} style={{ background: "white" }}>
       <ambientLight intensity={0.8} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <spotLight position={[0, 5, 0]} intensity={0.5} penumbra={1} />
       <group rotation={[-Math.PI / 2, 0, 0]}>
+        <StarField /> 
         <SpinningCoil onDotClick={handleDotClick} />
         <CentralObject onClick={() => setShowAboutMe(true)} />
-        {/* <Grid
-          args={[30, 30]}
+        <Grid
+          args={[40, 40]}
           cellSize={0.5}
           cellThickness={0.5}
           cellColor="#e0e0e0"
           fadeDistance={5}
           fadeStrength={1}
-        /> */}
+        />
       </group>
       <OrbitControls
         enableRotate={true}
@@ -246,8 +249,8 @@ export default function SpinningCoilScene() {
         maxPolarAngle={Math.PI / 2.5}
         minAzimuthAngle={-Math.PI / 4}
         maxAzimuthAngle={Math.PI / 4}
-        minDistance={8}
-        maxDistance={600}
+        minDistance={10}
+        maxDistance={20}
       />
     </Canvas>
     <Modal
@@ -270,4 +273,3 @@ export default function SpinningCoilScene() {
     </>
   )
 }
-  

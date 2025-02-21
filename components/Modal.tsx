@@ -1,5 +1,6 @@
 // Modal.tsx
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import GitHubContributions from "./GitHubContributions";
 
 interface AboutContent {
   mainContent: string;
@@ -61,7 +62,7 @@ interface ModalProps {
   onClose: () => void;
   title: string;
   content: string | Experience[] | Contact | WritingContent | AboutContent;
-  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default';
+  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github';
 }
 function RenderAchievement({ achievement }: { achievement: Achievement }) {
   if (!achievement.links) {
@@ -230,7 +231,18 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
     );
   }
   // Experience type modal
-
+  if (type === 'github') {
+    return (
+      <Dialog open={isOpen} onOpenChange={onClose}>
+        <DialogContent className="sm:max-w-[800px] bg-white/95 backdrop-blur-sm max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-3xl font-bold text-gray-900 mb-6">{title}</DialogTitle>
+          </DialogHeader>
+          <GitHubContributions />
+        </DialogContent>
+      </Dialog>
+    );
+  }
   if (type === 'writing') {
     const writingContent = content as WritingContent;
     return (
