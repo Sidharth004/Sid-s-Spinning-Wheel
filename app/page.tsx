@@ -10,7 +10,7 @@ export default function SyntheticV0PageForDeployment() {
      <main className="flex min-h-screen flex-col items-center  p-8 bg-gradient-to-b from-white to-gray-100">
           <div className="w-full ">
             <h1 className="text-5xl font-bold mb-8 text-center text-black">Welcome to Sid's Cryptoverse 🧑‍🚀</h1>
-            <h1 className="text-3xl font-bold text-center text-black">Filed with research, growth, writing, code and ofcourse - fun!! 🙂</h1>
+            <h1 className="text-3xl font-bold text-center text-black">Filled with research, growth, writing, code and ofcourse - fun!! 🙂</h1>
             <div className="w-full  h-[90vh] w-full relative rounded-lg ">
               <Suspense fallback={<Loader />}>
                 <SpinningCoilScene />
