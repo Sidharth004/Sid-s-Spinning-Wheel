@@ -1,0 +1,21 @@
+{
+  "name": "Sid's Cryptoverse",
+  "short_name": "Sid's Cryptoverse",
+  "description": "Portfolio and Digital Universe of Sidharth",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32 48x48 64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}

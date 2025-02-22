@@ -123,7 +123,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           <div className="flex justify-center">
             <div className="w-40 h-40 rounded-full overflow-hidden ring-4 ring-gray-200"> {/* Slightly smaller image */}
               <img
-                src="/path-to-your-image.jpg"
+                src="/profile_pic.jpeg"
                 alt="Sidharth Kumthekar"
                 className="w-full h-full object-cover"
               />
@@ -177,15 +177,18 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             <div className="mt-8 pt-6 border-t border-gray-200">
               <div className="flex justify-center items-center space-x-8">
                 {/* Solscan */}
-                <a
+                 {/* Solscan */}
+                 <a
                   href={aboutContent.socialLinks.solscan}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 hover:text-purple-600 transition-colors p-2 rounded-full hover:bg-gray-100"
                 >
-                  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
+                  <img 
+                    src="/solscan.png" 
+                    alt="Solscan" 
+                    className="w-8 h-8 object-contain"
+                  />
                 </a>
   
                 {/* Twitter/X */}
