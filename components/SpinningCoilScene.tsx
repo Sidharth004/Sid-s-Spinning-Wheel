@@ -27,7 +27,7 @@ const dotInfo = {
     }
   },
   writing: {
-    title: "Technical Writing",
+    title: "Technical Writing: Favorite works",
     type: "writing" as const,
     content: {
       professional: [
@@ -53,6 +53,11 @@ const dotInfo = {
               title: "Interoperable Communications: Moving Across an Open Web with Push",
               url: "https://push.org/blog/interoperable-communications-moving-across-an-open-web-with-push/",
               label: "Case Study & Research"
+            },
+            {
+              title:"EIP-3664 - The full guide to advanced NFT Properties",
+              url:"https://www.cyfrin.io/blog/eip-3664-full-guide-to-nft-properties",
+              label:"Tutorial"
             }
           ]
         },
