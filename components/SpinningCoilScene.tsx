@@ -111,7 +111,7 @@ const dotInfo = {
     type: "experience",
     content: [
       {
-        company: "Push Protocol",
+        company: "🔗 Push Protocol",
         companyUrl: "https://push.org",
         role: "Growth",
         duration: "Feb. 2024 – Present",
@@ -130,8 +130,8 @@ const dotInfo = {
         ]
       },
       {
-        company: "Merkle Labs",
-        companyUrl: "https://push.org",
+        company: "🔗 Merkle Labs",
+        companyUrl: "https://merklelabs.xyz/",
         role: "Product Manager",
         duration: "May. 2023 – Nov. 2023",
         location: "Dubai (Remote)",
@@ -151,7 +151,7 @@ const dotInfo = {
         ]
       },
       {
-        company: "Alchemy",
+        company: "🔗 Alchemy",
         companyUrl: "https://push.org",
         role: "Analyst",
         duration: "Nov. 2022 – Oct. 2024",
@@ -167,7 +167,7 @@ const dotInfo = {
         ]
       },
       {
-        company: "Reblue Ventures",
+        company: "🔗 Reblue Ventures",
 
         companyUrl: "https://push.org",
         role: "Gen.AI Backend Developer Intern",
@@ -181,7 +181,7 @@ const dotInfo = {
         tech: "Python, Google Cloud Suite, Gemini, Text-Bison, Cloud Functions, Langchain, SQL"
       },
       {
-        company: "Dot Names",
+        company: "🔗 Dot Names",
 
         companyUrl: "https://dotnames.me",
         role: "BD Specialist",
@@ -194,7 +194,7 @@ const dotInfo = {
         ]
       },
       {
-        company: "Articleship - Vitto Rivabella",
+        company: "🔗 Articleship - Vitto Rivabella",
 
         companyUrl: "https://vitto.cc",
         role: "Technical Content Writer and Strategist",
