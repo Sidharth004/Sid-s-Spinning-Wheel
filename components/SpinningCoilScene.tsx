@@ -179,6 +179,32 @@ const dotInfo = {
           }
         ],
         tech: "Python, Google Cloud Suite, Gemini, Text-Bison, Cloud Functions, Langchain, SQL"
+      },
+      {
+        company: "Dot Names",
+
+        companyUrl: "https://dornames.me",
+        role: "BD Specialist",
+        duration: "Nov 2023 - Jan 2024",
+        location: "Remote",
+        achievements: [
+          {
+            text:"Onboarded over 26 projects from Taiko zkevm, Blast L2, Omni and Sei Ecosystems under Dot Name's Domain Support cover"
+          }
+        ]
+      },
+      {
+        company: "Articleship - Vitto Rivabella",
+
+        companyUrl: "https://vitto.cc",
+        role: "Technical Content Writer and Strategist",
+        duration: "Oct 2022 – Dec 2022",
+        location: "Remote",
+        achievements: [
+          {
+            text:"Wrote technical guides on Web3 development. Received a QRT from Gavin Wood on Polkadot vs Ethereum article"
+          }
+        ]
       }
     ]
   },
