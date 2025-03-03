@@ -183,7 +183,7 @@ const dotInfo = {
       {
         company: "Dot Names",
 
-        companyUrl: "https://dornames.me",
+        companyUrl: "https://dotnames.me",
         role: "BD Specialist",
         duration: "Nov 2023 - Jan 2024",
         location: "Remote",
