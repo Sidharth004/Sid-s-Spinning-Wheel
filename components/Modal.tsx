@@ -5,7 +5,6 @@ import GitHubContributions from "./GitHubContributions";
 interface AboutContent {
   mainContent: string;
   socialLinks: {
-    solscan: string;
     twitter: string;
     telegram: string;
     linkedin: string;
@@ -178,7 +177,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
               <div className="flex justify-center items-center space-x-8">
                 {/* Solscan */}
                  {/* Solscan */}
-                 <a
+                 {/* <a
                   href={aboutContent.socialLinks.solscan}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -189,7 +188,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
                     alt="Solscan" 
                     className="w-8 h-8 object-contain"
                   />
-                </a>
+                </a> */}
   
                 {/* Twitter/X */}
                 <a

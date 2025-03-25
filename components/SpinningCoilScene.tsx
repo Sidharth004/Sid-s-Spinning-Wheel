@@ -19,7 +19,6 @@ const dotInfo = {
     content: {
       mainContent: "**Hey, I'm Sidharth!** A 22-year-old CS Engineer with a deep love for crypto.\n\nIn my *tiny* 2.5-year journey in Web3, I've had the chance to wear multiple hats—ranging from development and research analysis to PM, growth, and BD. And honestly? I love them all.\n\nRight now, I'm diving deep into Growth and Product roles.\n\nI started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on state-aggregated chains like Push Chain and Solana (loving it so far!).\n\nThough crypto takes up ¾ of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:\n⚽ Playing football (*Man City for life!*)\n📺 Binge-watching *Suits*\n🚗 Going on long drives with my pals\n\nMy near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.",
       socialLinks: {
-        solscan: "https://solscan.io/account/Chf6eXeGxMWdwUT4F5pSKxCaJ1vGibxoJ4U1HEW9Y5dz",
         twitter: "https://twitter.com/multichain_sid",
         telegram: "https://t.me/multichain_sid",
         linkedin: "https://www.linkedin.com/in/sidharth-kumthekar04r-70772b1a7/"
