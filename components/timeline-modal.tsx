@@ -54,7 +54,7 @@ export function TimelineModal({
         </DialogHeader>
 
         <div className="flex h-full overflow-x-auto">
-          <div className="min-w-[1200px] w-max p-4 relative">
+          <div className="min-w-[1800px] w-max p-4 relative">
             <div className="ml-6 text-sm font-medium text-gray-600">{yAxisLabel}</div>
 
             {/* Graph container */}
@@ -134,12 +134,12 @@ export function TimelineModal({
                     <div 
                       className={cn(
                         "absolute z-20 p-3 bg-white border border-gray-200 rounded-lg shadow-md",
-                        isAbove ? "bottom-full mb-3" : "top-full mt-3",
+                        isAbove ? "bottom-full mb-6" : "top-full mt-6",
                         "left-1/2 -translate-x-1/2"
                       )}
-                      style={{ width: "160px" }}
+                      style={{ width: "220px" }}
                     >
-                      <div className="w-full h-32 border border-gray-200 rounded-md flex items-center justify-center overflow-hidden bg-gray-50">
+                      <div className="w-full h-36 border border-gray-200 rounded-md flex items-center justify-center overflow-hidden bg-gray-50">
                         {milestone.image ? (
                           <img
                             src={milestone.image}
