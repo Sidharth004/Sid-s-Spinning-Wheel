@@ -1,5 +1,4 @@
-
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls, Grid } from "@react-three/drei"
 import { SpinningCoil } from "./SpinningCoil"
@@ -10,23 +9,29 @@ import { StarField } from './StarField'
 type DotInfoKey = 'writing' | 'experience' | 'projects' | 'github' | 'contact';
 const dotLabels: DotInfoKey[] = ['writing', 'experience', 'projects', 'github', 'contact'];
 
-
+// Keep your existing dotInfo object unchanged
 const dotInfo = {
- 
+  // Your existing dotInfo configuration
+  github: {
+    title: "GitHub Activity",
+    type: "github" as const,
+    content: null
+  },
   aboutMe: {
     title: "About Me",
     type: "about" as const,
     content: {
       mainContent: "**Hey, I'm Sidharth!** A 22-year-old CS Engineer with a deep love for crypto.\n\nIn my *tiny* 2.5-year journey in Web3, I've had the chance to wear multiple hats—ranging from development and research analysis to PM, growth, and BD. And honestly? I love them all.\n\nRight now, I'm diving deep into Growth and Product roles.\n\nI started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on state-aggregated chains like Push Chain and Solana (loving it so far!).\n\nThough crypto takes up ¾ of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:\n⚽ Playing football (*Man City for life!*)\n📺 Binge-watching *Suits*\n🚗 Going on long drives with my pals\n\nMy near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.",
       socialLinks: {
+        solscan: "https://solscan.io/address/YOUR_SOL_WALLET_ADDRESS",
         twitter: "https://twitter.com/multichain_sid",
         telegram: "https://t.me/multichain_sid",
-        linkedin: "https://www.linkedin.com/in/sidharth-kumthekar04r-70772b1a7/"
+        linkedin: "https://www.linkedin.com/in/sidharth-kumthekar/"
       }
     }
   },
   writing: {
-    title: "Technical Writing: Favorite works",
+    title: "Technical Writing",
     type: "writing" as const,
     content: {
       professional: [
@@ -52,11 +57,6 @@ const dotInfo = {
               title: "Interoperable Communications: Moving Across an Open Web with Push",
               url: "https://push.org/blog/interoperable-communications-moving-across-an-open-web-with-push/",
               label: "Case Study & Research"
-            },
-            {
-              title:"EIP-3664 - The full guide to advanced NFT Properties",
-              url:"https://www.cyfrin.io/blog/eip-3664-full-guide-to-nft-properties",
-              label:"Tutorial"
             }
           ]
         },
@@ -110,7 +110,7 @@ const dotInfo = {
     type: "experience",
     content: [
       {
-        company: "🔗 Push Protocol",
+        company: "Push Protocol",
         companyUrl: "https://push.org",
         role: "Growth",
         duration: "Feb. 2024 – Present",
@@ -129,8 +129,8 @@ const dotInfo = {
         ]
       },
       {
-        company: "🔗 Merkle Labs",
-        companyUrl: "https://merklelabs.xyz/",
+        company: "Merkle Labs",
+        companyUrl: "https://push.org",
         role: "Product Manager",
         duration: "May. 2023 – Nov. 2023",
         location: "Dubai (Remote)",
@@ -150,13 +150,12 @@ const dotInfo = {
         ]
       },
       {
-        company: "🔗 Alchemy",
+        company: "Alchemy",
         companyUrl: "https://push.org",
         role: "Analyst",
         duration: "Nov. 2022 – Oct. 2024",
         location: "San Francisco (Remote)",
         achievements: [
-
           {
             text:"Authored technical guides on Solana Programming Library, Rollups, Modular Blockchains, and Subgraphs, averaging 50,000 monthly views."
           },
@@ -166,8 +165,7 @@ const dotInfo = {
         ]
       },
       {
-        company: "🔗 Reblue Ventures",
-
+        company: "Reblue Ventures",
         companyUrl: "https://push.org",
         role: "Gen.AI Backend Developer Intern",
         duration: "Nov.2023 – Feb 2024",
@@ -178,44 +176,13 @@ const dotInfo = {
           }
         ],
         tech: "Python, Google Cloud Suite, Gemini, Text-Bison, Cloud Functions, Langchain, SQL"
-      },
-      {
-        company: "🔗 Dot Names",
-
-        companyUrl: "https://dotnames.me",
-        role: "BD Specialist",
-        duration: "Nov 2023 - Jan 2024",
-        location: "Remote",
-        achievements: [
-          {
-            text:"Onboarded over 26 projects from Taiko zkevm, Blast L2, Omni and Sei Ecosystems under Dot Name's Domain Support cover"
-          }
-        ]
-      },
-      {
-        company: "🔗 Articleship - Vitto Rivabella",
-
-        companyUrl: "https://vitto.cc",
-        role: "Technical Content Writer and Strategist",
-        duration: "Oct 2022 – Dec 2022",
-        location: "Remote",
-        achievements: [
-          {
-            text:"Wrote technical guides on Web3 development. Received a QRT from Gavin Wood on Polkadot vs Ethereum article"
-          }
-        ]
       }
     ]
   },
   projects: {
     title: "Projects",
-    content: "...",
+    content: "Your projects content here...",
     type: "default"
-  },
-  github: {
-    title: "GitHub Activity",
-    type: "github" as const,
-    content: null
   },
   contact: {
     title: "Contact",
@@ -238,60 +205,128 @@ const dotInfo = {
             url: "https://linkedin.com/in/your-profile"
         }
     }
+  }
 }
-}
-
 
 export default function SpinningCoilScene() {
   const [selectedDot, setSelectedDot] = useState<DotInfoKey | null>(null);
   const [showAboutMe, setShowAboutMe] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Detect mobile device and adjust camera and controls
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Set initial value
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+  // Set custom viewport height variable to handle mobile browsers correctly
+  useEffect(() => {
+    // Set custom viewport height variable
+    const setVH = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+    
+    // Initial call
+    setVH();
+    
+    // Set on resize
+    window.addEventListener('resize', setVH);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', setVH);
+  }, []);
 
   const handleDotClick = (index: number) => {
     const keys: DotInfoKey[] = ['writing', 'experience', 'projects', 'github', 'contact'];
     setSelectedDot(keys[index]);
   };
 
+  // Adjust camera position and field of view based on device size
+  const cameraPosition: [number, number, number] = isMobile ? [0, 10, 15] : [0, 8, 12];
+  const cameraFov = isMobile ? 50 : 35;
+  
+  // Adjust control constraints based on device
+  const orbitControlProps = {
+    enableRotate: true,
+    enableZoom: true,
+    enablePan: false,
+    minPolarAngle: Math.PI / 4,
+    maxPolarAngle: Math.PI / 2.5,
+    minAzimuthAngle: isMobile ? -Math.PI / 2 : -Math.PI / 4,
+    maxAzimuthAngle: isMobile ? Math.PI / 2 : Math.PI / 4,
+    minDistance: isMobile ? 8 : 10,
+    maxDistance: isMobile ? 25 : 20,
+  };
 
   return (
-    <>
-    <Canvas camera={{ position: [0, 8, 12], fov: 35, near: 0.1,far:1000 }} style={{ background: "white" }}>
-      <ambientLight intensity={0.8} />
-      <directionalLight position={[5, 5, 5]} intensity={1} />
-      <spotLight position={[0, 5, 0]} intensity={0.5} penumbra={1} />
-      <group rotation={[-Math.PI / 2, 0, 0]}>
-        <StarField /> 
-        <SpinningCoil onDotClick={handleDotClick} />
-        <CentralObject onClick={() => setShowAboutMe(true)} />
-        <Grid
-          args={[40, 40]}
-          cellSize={0.5}
-          cellThickness={0.5}
-          cellColor="#e0e0e0"
-          fadeDistance={5}
-          fadeStrength={1}
-        />
-      </group>
-      <OrbitControls
-        enableRotate={true}
-        enableZoom={true}
-        enablePan={false}
-        minPolarAngle={Math.PI / 4}
-        maxPolarAngle={Math.PI / 2.5}
-        minAzimuthAngle={-Math.PI / 4}
-        maxAzimuthAngle={Math.PI / 4}
-        minDistance={10}
-        maxDistance={20}
+    <div 
+        // className="canvas-container" style={{ width: '100%', height: 'calc(var(--vh, 1vh) * 100)', position: 'relative' }}>
+        className="canvas-container fixed top-0 left-0 w-screen h-screen z-0"
+        style={{
+          height: '100dvh',
+          overflow: 'hidden',
+          WebkitOverflowScrolling: 'touch',
+        }}>
+       <Canvas 
+        key={isMobile.toString()}
+        camera={{ 
+          position: cameraPosition, 
+          fov: cameraFov, 
+          near: 0.1, 
+          far: 1000 
+        }}
+        style={{ 
+          background: "#121210",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100dvh"
+        }}
+        dpr={[1, 2]} // Optimize for different device pixel ratios
+        performance={{ min: 0.5 }} // Better performance on low-end devices
+        resize={{ scroll: false, debounce: { scroll: 50, resize: 0 } }} // Optimize resize performance
+      >
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[5, 5, 5]} intensity={1} />
+        <spotLight position={[0, 5, 0]} intensity={0.5} penumbra={1} />
+        <group rotation={[-Math.PI / 2, 0, 0]}>
+          <StarField /> 
+          <SpinningCoil onDotClick={handleDotClick} />
+          <CentralObject onClick={() => setShowAboutMe(true)} />
+          <Grid
+            args={[40, 40]}
+            cellSize={0.5}
+            cellThickness={0.5}
+            cellColor="#e0e0e0"
+            fadeDistance={5}
+            fadeStrength={1}
+          />
+        </group>
+        <OrbitControls {...orbitControlProps} />
+      </Canvas>
+      
+      <Modal
+        isOpen={selectedDot !== null}
+        onClose={() => setSelectedDot(null)}
+        title={selectedDot ? dotInfo[selectedDot].title : ""}
+        content={selectedDot ? dotInfo[selectedDot].content : ""}
+        type={selectedDot ? dotInfo[selectedDot].type : "default"}
       />
-    </Canvas>
-    <Modal
-      isOpen={selectedDot !== null}
-      onClose={() => setSelectedDot(null)}
-      title={selectedDot ? dotInfo[selectedDot].title : ""}
-      content={selectedDot ? dotInfo[selectedDot].content : ""}
-      type={selectedDot ? dotInfo[selectedDot].type : "default"}
-    />
 
-    {showAboutMe && (
+      {showAboutMe && (
         <Modal
           isOpen={showAboutMe}
           onClose={() => setShowAboutMe(false)}
@@ -300,6 +335,6 @@ export default function SpinningCoilScene() {
           content={dotInfo.aboutMe.content}
         />
       )}
-    </>
+    </div>
   )
 }

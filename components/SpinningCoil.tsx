@@ -22,7 +22,9 @@ export function SpinningCoil({ onDotClick }: SpinningCoilProps) {
   const revolutions = 3
   const pointsPerRevolution = 64
   const totalPoints = revolutions * pointsPerRevolution
-  const radiusScale = 3
+  //const radiusScale = 3
+  const screenWidth = typeof window !== "undefined" ? window.innerWidth : 1024
+  const radiusScale = screenWidth < 768 ? 2 : 3.5
 
   for (let i = 0; i <= totalPoints; i++) {
     const t = i / pointsPerRevolution
@@ -40,7 +42,7 @@ export function SpinningCoil({ onDotClick }: SpinningCoilProps) {
   return (
     <group ref={coilRef} position={[0, 0, 0.01]}>
       <line geometry={lineGeometry}>
-        <lineBasicMaterial color="black" linewidth={1} />
+        <lineBasicMaterial color="white" linewidth={2} />
       </line>
       {dotLabels.map((label, index) => (
         <Dot 

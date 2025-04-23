@@ -55,7 +55,7 @@ export function StarField() {
         >
           <sphereGeometry args={[star.size, 8, 8]} />
           <meshBasicMaterial 
-            color="black"
+            color="white"
             transparent={true}
             opacity={0.9}
           />

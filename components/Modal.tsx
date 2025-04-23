@@ -1,5 +1,6 @@
 // Modal.tsx
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { TimelineModal } from "./timeline-modal";
 import GitHubContributions from "./GitHubContributions";
 
 interface AboutContent {
@@ -165,6 +166,25 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             <p className="leading-relaxed">
               My near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.
             </p>
+
+            {/* Timeline journey button */}
+            <div className="flex justify-center mt-6">
+              <TimelineModal
+                title="My Web3 Journey Timeline"
+                xAxisLabel="Timeline"
+                yAxisLabel="Depth of Exploration"
+                yAxisValues={["Learning", "Building", "Leading", "Innovating"]}
+                milestones={[
+                  { id: "1", x: 10, y: 15, image: null, caption: "First Ethereum Smart Contract", xLabel: "2021" },
+                  { id: "2", x: 25, y: 35, image: null, caption: "Joined Push Protocol", xLabel: "2022" },
+                  { id: "3", x: 40, y: 55, image: null, caption: "Wardrobe NFT Marketplace", xLabel: "2023" },
+                  { id: "4", x: 60, y: 75, image: null, caption: "Growth & Protocol Fee Pool", xLabel: "2024" },
+                  { id: "5", x: 80, y: 90, image: null, caption: "Digital Nomad & DeFi Explorer", xLabel: "2025+" },
+                ]}
+                buttonText="View My Web3 Journey Timeline"
+                buttonVariant="outline"
+              />
+            </div>
             </div>
   
             
@@ -257,7 +277,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           {/* Professional Writing Section */}
           <div className="space-y-8">
             <section>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Professional Writing</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Professional</h2>
               {writingContent.professional.map((yearGroup) => (
                 <div key={yearGroup.year} className="mb-8">
                   <h3 className="text-xl font-semibold text-gray-700 mb-4">{yearGroup.year}</h3>
@@ -284,7 +304,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
 
             {/* Personal Writing Section */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Personal Writing</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 text">Personal</h2>
               <div className="space-y-4">
                 {writingContent.personal.map((blog, index) => (
                   <div key={index} className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">

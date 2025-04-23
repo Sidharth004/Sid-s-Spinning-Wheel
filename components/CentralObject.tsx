@@ -23,14 +23,29 @@ export function CentralObject({ onClick }: CentralObjectProps) {
 
   return (
     <group ref={groupRef} position={[0, 0, 0.02]}>
-      {/* Outermost aura layer */}
+      {/* Outermost thin aura layer (new) */}
+      <mesh scale={[4, 4, 4]}>
+        <sphereGeometry args={[0.2, 32, 32]} />
+        <meshPhysicalMaterial
+          color="white"
+          transparent={true}
+          opacity={0.05}
+          emissive="white"
+          emissiveIntensity={0.1}
+          metalness={0}
+          roughness={1}
+          depthWrite={false}
+        />
+      </mesh>
+      
+      {/* Outermost standard aura layer */}
       <mesh scale={[3, 3, 3]}>
         <sphereGeometry args={[0.2, 32, 32]} />
         <meshPhysicalMaterial
           color="#FFD700"
           transparent={true}
           opacity={0.1}
-          emissive="#FFB900"
+          emissive="#FFD700"
           emissiveIntensity={0.2}
           metalness={0}
           roughness={1}
@@ -45,7 +60,7 @@ export function CentralObject({ onClick }: CentralObjectProps) {
           color="#FFD700"
           transparent={true}
           opacity={0.15}
-          emissive="#FFB900"
+          emissive="#FFD700"
           emissiveIntensity={0.3}
           metalness={0}
           roughness={1}
@@ -59,15 +74,15 @@ export function CentralObject({ onClick }: CentralObjectProps) {
         <meshPhysicalMaterial
           color="#FFD700"
           transparent={true}
-          opacity={0.2}
-          emissive="#FFB900"
+          opacity={10}
+          emissive="white"
           emissiveIntensity={0.4}
           metalness={0}
           roughness={1}
         />
       </mesh>
 
-      {/* Main black sphere */}
+      {/* Main gold sphere - changed from black to gold */}
       <mesh 
         ref={meshRef} 
         castShadow
@@ -78,16 +93,18 @@ export function CentralObject({ onClick }: CentralObjectProps) {
       >
         <sphereGeometry args={[0.4, 52, 52]} />
         <meshStandardMaterial 
-          color="black"
-          metalness={0}
+          color="#FFD700"
+          metalness={0.1}
           roughness={1}
+          emissive="#FFD700"
+          emissiveIntensity={0.2}
         />
       </mesh>
 
       <mesh ref={textRef} position={[0, 0, 0.7]}>
         <Text
           fontSize={0.8}
-          color="#111111"
+          color="white"
           anchorX="center"
           anchorY="middle"
           scale={[0.4, 0.4, 0.4]}
