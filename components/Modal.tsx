@@ -167,29 +167,30 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
               My near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.
             </p>
 
-            {/* Timeline journey button */}
-            <div className="flex justify-center mt-6">
+             {/* Timeline journey button */}
+             <div className="flex justify-center mt-6">
               <TimelineModal
-                title="My Web3 Journey Timeline"
+                title="My Retardness Timeline"
                 xAxisLabel="Timeline"
-                yAxisLabel="Depth of Exploration"
-                yAxisValues={["Learning", "Building", "Leading", "Innovating"]}
+                yAxisLabel="Retardness"
+                yAxisValues={["Beginning", "Growing", "Established", "Advanced"]}
                 milestones={[
-                  { id: "1", x: 10, y: 15, image: null, caption: "First Ethereum Smart Contract", xLabel: "2021" },
-                  { id: "2", x: 25, y: 35, image: null, caption: "Joined Push Protocol", xLabel: "2022" },
-                  { id: "3", x: 40, y: 55, image: null, caption: "Wardrobe NFT Marketplace", xLabel: "2023" },
-                  { id: "4", x: 60, y: 75, image: null, caption: "Growth & Protocol Fee Pool", xLabel: "2024" },
-                  { id: "5", x: 80, y: 90, image: null, caption: "Digital Nomad & DeFi Explorer", xLabel: "2025+" },
+                  { id: "1", x: 10, y: 15,  image: '/scoolbiz.jpg', caption: "School time Bizznesss", xLabel: "2014" },
+                  { id: "2", x: 25, y: 35, image: '/act.jpg', caption: "Sid + Humor + Acting = Housefull Show", xLabel: "2017"},
+                  { id: "3", x: 40, y: 55, image: '/standup.mp4', caption: "First Highschool standup", xLabel: "2019" },
+                  { id: "4", x: 60, y: 75, image: '/demo.jpeg', caption: "Genesis demo - Solana HH'23", xLabel: "2023" },
+                  { id: "5", x: 75, y: 85, image: '/football.jpeg', caption: "Always in the game", xLabel: "2023" },
+                  { id: "6", x: 90, y: 95, image: '/award.jpeg', caption: "Won best Int'l achievements award", xLabel: "2024" },
+                  { id: "7", x: 95, y: 8, image: '/tshirtpilot.jpeg', caption: "Clothing brand for nerds", xLabel: "2024" }
                 ]}
-                buttonText="View My Web3 Journey Timeline"
+                buttonText="My Retardness Timeline"
                 buttonVariant="outline"
               />
             </div>
             </div>
   
             
-  
-              
+          
                
   
             {/* Social Links */}

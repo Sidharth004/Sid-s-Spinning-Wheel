@@ -3,7 +3,7 @@
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { ImageIcon } from "lucide-react"
 
@@ -31,30 +31,57 @@ export function TimelineModal({
   xAxisLabel = "Time",
   yAxisLabel = "Degree of Experimentation",
   yAxisValues = ["a", "z", "y", "x"],
-  milestones = [
-    { id: "1", x: 10, y: 10, image: null, caption: "First milestone", xLabel: "2010" },
-    { id: "2", x: 30, y: 30, image: null, caption: "Second milestone", xLabel: "2014" },
-    { id: "3", x: 50, y: 50, image: null, caption: "Third milestone", xLabel: "2016" },
-    { id: "4", x: 70, y: 70, image: null, caption: "Fourth milestone", xLabel: "2020" },
-  ],
+  milestones = [],
   buttonText = "View My Journey",
   buttonVariant = "outline"
 }: TimelineModalProps) {
   const [open, setOpen] = useState(false)
   const graphRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  // Sort milestones by x position explicitly (ascending order - from left to right)
+  const sortedMilestones = [...milestones].sort((a, b) => {
+    // Primary sort by xLabel (numeric value within the label)
+    const aYear = parseInt(a.xLabel.match(/\d+/)?.[0] || "0");
+    const bYear = parseInt(b.xLabel.match(/\d+/)?.[0] || "0");
+    
+    if (aYear !== bYear) {
+      return aYear - bYear;
+    }
+    
+    // Secondary sort by x position if years are the same
+    return a.x - b.x;
+  });
+
+  // Scroll to center of content when modal opens
+  useEffect(() => {
+    if (open && scrollRef.current) {
+      setTimeout(() => {
+        if (scrollRef.current) {
+          // Get the total width of the content
+          const totalWidth = scrollRef.current.scrollWidth;
+          // Scroll to position where the first few items are visible but we still have room to scroll right
+          scrollRef.current.scrollLeft = 0;
+        }
+      }, 200); // Small delay to ensure content is rendered
+    }
+  }, [open]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant={buttonVariant}>{buttonText}</Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[95vw] max-h-[90vh] w-[1000px] h-[700px] overflow-auto">
+      <DialogContent className="max-w-[95vw] max-h-[90vh] w-[1000px] h-[700px]">
         <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
+          <DialogTitle className="text-center text-2xl font-bold mb-2">{title}</DialogTitle>
         </DialogHeader>
 
-        <div className="flex h-full overflow-x-auto">
-          <div className="min-w-[1800px] w-max p-4 relative">
+        <div 
+          ref={scrollRef}
+          className="flex h-full overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 pb-2"
+        >
+          <div className="min-w-[2000px] w-max p-4 relative">
             <div className="ml-6 text-sm font-medium text-gray-600">{yAxisLabel}</div>
 
             {/* Graph container */}
@@ -77,7 +104,7 @@ export function TimelineModal({
 
               {/* X-axis */}
               <div className="absolute left-10 right-10 bottom-10 h-px bg-gray-800">
-                {milestones.map((milestone) => (
+                {sortedMilestones.map((milestone) => (
                   <div
                     key={`x-${milestone.id}`}
                     className="absolute w-px h-3 bg-gray-800"
@@ -113,11 +140,25 @@ export function TimelineModal({
               </div>
 
               {/* Milestones */}
-              {milestones.map((milestone, index) => {
-                const graphXPercent = milestone.x;
-                const xPos = 10 + (graphXPercent * 0.8); // 80% graph width
-                const yPos = 10 + ((100 - graphXPercent) * 0.8); // lock to diagonal
+              {sortedMilestones.map((milestone, index) => {
+                // Calculate position on the diagonal line
+                // We use a modified approach to ensure the dots and containers 
+                // are well distributed across the visible area
+                const totalMilestones = sortedMilestones.length;
+                const padding = 10; // Percentage from edges
+                const usableWidth = 100 - (padding * 2);
+                const segmentWidth = usableWidth / (totalMilestones - 1);
+                
+                // Position dots with appropriate spread along the diagonal
+                const xPos = padding + (index * segmentWidth);
+                const yPos = 100 - padding - (index * segmentWidth);
+                
+                // Alternate image containers above/below
                 const isAbove = index % 2 === 0;
+
+                // Calculate appropriate margin to ensure visibility
+                const xMargin = index < 1 ? 0 : 
+                               index >= totalMilestones - 1 ? -220 : -110;
 
                 return (
                   <div
@@ -129,15 +170,19 @@ export function TimelineModal({
                       transform: 'translate(-50%, -50%)'
                     }}
                   >
+                    {/* Milestone dot - exactly on the line */}
                     <div className="w-4 h-4 bg-black rounded-full relative z-10" />
 
+                    {/* Image and caption container - alternating above/below */}
                     <div 
                       className={cn(
                         "absolute z-20 p-3 bg-white border border-gray-200 rounded-lg shadow-md",
-                        isAbove ? "bottom-full mb-6" : "top-full mt-6",
-                        "left-1/2 -translate-x-1/2"
+                        isAbove ? "bottom-full mb-6" : "top-full mt-6"
                       )}
-                      style={{ width: "220px" }}
+                      style={{ 
+                        width: "220px",
+                        marginLeft: `${xMargin}px`
+                      }}
                     >
                       <div className="w-full h-36 border border-gray-200 rounded-md flex items-center justify-center overflow-hidden bg-gray-50">
                         {milestone.image ? (
@@ -153,7 +198,10 @@ export function TimelineModal({
                           </div>
                         )}
                       </div>
-                      <div className="mt-2 text-center text-sm font-medium text-gray-700">{milestone.caption}</div>
+                      <div className="mt-2 text-center text-sm font-medium text-gray-700">
+                        {milestone.caption}
+                        <div className="text-xs text-gray-500 mt-1">{milestone.xLabel}</div>
+                      </div>
                     </div>
                   </div>
                 );
