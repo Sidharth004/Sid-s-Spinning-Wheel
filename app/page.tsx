@@ -32,7 +32,7 @@ export default function SyntheticV0PageForDeployment() {
           <h1 className="text-6xl md:text-6xl font-regular mb-4 text-center">
             Welcome to Sid's Cryptoverse 🧑‍🚀
           </h1>
-          <h2 className="text-lg md:text-xl font-regular text-center mb-8 px-2 md:px-8 max-w-3xl mx-auto text-[#D6E6EE]">
+          <h2 className="text-lg md:text-xl font-regular text-center mb-8 px-2 md:px-8 max-w-3xl mx-auto text-[#D3D3D3]">
             This is my digital directory where you'll find most of the stuff about my life, work, weekend experiments, and my ultra nobelist writing
           </h2>
         </div>
@@ -40,9 +40,7 @@ export default function SyntheticV0PageForDeployment() {
         {/* Footer text - positioned at bottom with responsive margin */}
         <div className="fixed bottom-4 md:bottom-6 left-0 right-0 px-4">
           <section className="text-center max-w-md md:max-w-2xl mx-auto">
-            <p className="text-sm md:text-base text-white/70">
-              Like this ever-spinning spiral, my creative journey is continuous and evolving. Click on the orbs to explore my skills and expertise.
-            </p>
+            
           </section>
         </div>
       </div>

@@ -138,33 +138,32 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           {/* Main Content */}
           <div className="space-y-4 text-gray-700">
             <p className="leading-relaxed">
-              A 22-year-old CS Engineer with a deep love for crypto.
+              A 22 year old CS Undergrad who loves to build products and sky rocket brands!
+              Got introduced to crypto during covid - got my first industry breaktrhough in my sophomore year (2k22) - and now there's nooooo turning back.
             </p>
 
             <p className="leading-relaxed">
-              In my <em>tiny</em> 2.5-year journey in Web3, I've had the chance to wear multiple hats—ranging from development and research analysis to PM, growth, and BD. And honestly? I love them all.
+              Till date I've been lucky to wear multiple hats—ranging from development and research analysis to PM, BD, and Growth. And honestly? I love em all.
+              Soaking in everything with an open mind - with one goal in mind: becoming the best crypto polymath
             </p>
 
             <p className="leading-relaxed">
-              Right now, I'm diving deep into Growth and Product roles.
+              Right now, I'm Locked into Growth and Product roles.
             </p>
 
             <p className="leading-relaxed">
-              I started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on state-aggregated chains like Push Chain and Solana (loving it so far!).
-            </p>
-
-            <p className="leading-relaxed">
-              Though crypto takes up ¾ of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:
+              Though crypto takes up 7/4th of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:
             </p>
 
             <div className="pl-6 space-y-2">
               <p>⚽ Playing football (<em>Man City for life!</em>)</p>
               <p>📺 Binge-watching <em>Suits</em></p>
               <p>🚗 Going on long drives with my pals</p>
+              <p>🍞 Studying economics <em>(new hoob..its really cool!)</em></p>
             </div>
 
             <p className="leading-relaxed">
-              My near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.
+              My near-term goal? To contribute my best towards stable coin infra, consumer crypto apps and travel the world—living the true digital nomad life.
             </p>
 
              {/* Timeline journey button */}
