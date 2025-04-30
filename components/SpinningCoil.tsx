@@ -15,7 +15,7 @@ export function SpinningCoil({ onDotClick }: SpinningCoilProps) {
   const coilRef = useRef<THREE.Group>(null!)
 
   useFrame((state) => {
-    coilRef.current.rotation.z += 0.002
+    coilRef.current.rotation.z += 0.004
   })
 
   const points: THREE.Vector3[] = []

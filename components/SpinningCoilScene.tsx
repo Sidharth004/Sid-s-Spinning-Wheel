@@ -130,8 +130,8 @@ const dotInfo = {
         ]
       },
       {
-        company: "Merkle Labs (Doge Capital)",
-        companyUrl: "https://merklelabs.xyz/#recruitment",
+        company: "Doge Capital",
+        companyUrl: "https://thedogecapital.com/",
         role: "Product Manager",
         duration: "May. 2023 – Nov. 2023",
         location: "Dubai (Remote)",
@@ -303,7 +303,7 @@ export default function SpinningCoilScene() {
         <ambientLight intensity={0.8} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <spotLight position={[0, 5, 0]} intensity={0.5} penumbra={1} />
-        <group rotation={[-Math.PI / 2, 0, 0]}>
+        <group rotation={[-Math.PI / -3, 0, 0]}>
           <StarField /> 
           <SpinningCoil onDotClick={handleDotClick} />
           <CentralObject onClick={() => setShowAboutMe(true)} />
