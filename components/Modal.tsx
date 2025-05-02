@@ -2,6 +2,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { TimelineModal } from "./timeline-modal";
 import GitHubContributions from "./GitHubContributions";
+import { ProjectsModal } from "./projects-modal";
 
 interface AboutContent {
   mainContent: string;
@@ -11,6 +12,7 @@ interface AboutContent {
     linkedin: string;
   }
 }
+
 
 
 interface LinkText {
@@ -57,12 +59,22 @@ interface Contact {
   [key: string]: ContactInfo;
 }
 
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: string | null;
+  ctaText: string;
+  ctaLink: string;
+}
+
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  content: string | Experience[] | Contact | WritingContent | AboutContent;
-  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github';
+  content: string | Experience[] | Contact | WritingContent | AboutContent| Project[];
+  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github'|'projects';
 }
 function RenderAchievement({ achievement }: { achievement: Achievement }) {
   if (!achievement.links) {
@@ -373,6 +385,18 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           </div>
         </DialogContent>
       </Dialog>
+    );
+  }
+  // Projects type modal
+  if (type === 'projects') {
+    const projects = content as Project[];
+    return (
+      <ProjectsModal
+        isOpen={isOpen}
+        onClose={onClose}
+        title={title}
+        projects={projects}
+      />
     );
   }
 

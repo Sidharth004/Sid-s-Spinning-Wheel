@@ -17,6 +17,44 @@ const dotInfo = {
     type: "github" as const,
     content: null
   },
+  projects: {
+    title: "My Projects",
+    type: "projects" as const,
+    content: [
+      {
+        id: "1",
+        title: "Web3 Portfolio Dashboard",
+        description: "A real-time dashboard for tracking crypto portfolio performance across multiple chains with customizable analytics.",
+        image: "/projects/portfolio.jpg",
+        ctaText: "View Project",
+        ctaLink: "https://github.com/Sidharth004"
+      },
+      {
+        id: "2",
+        title: "Push Protocol Integration",
+        description: "Implemented decentralized notifications for dApps using Push Protocol, increasing user engagement by 40%.",
+        image: "/projects/push.jpg",
+        ctaText: "See Demo",
+        ctaLink: "https://push.org"
+      },
+      {
+        id: "3",
+        title: "NFT Trait Customization",
+        description: "Built 'Wardrobe' - Solana's first NFT traits marketplace allowing users to customize their NFTs with interchangeable traits.",
+        image: "/projects/wardrobe.jpg",
+        ctaText: "Explore Platform",
+        ctaLink: "https://wardrobe.com"
+      },
+      {
+        id: "4",
+        title: "DeFi Yield Aggregator",
+        description: "Developed an automated yield farming tool that optimizes returns across multiple protocols based on risk preferences.",
+        image: "/projects/defi.jpg", 
+        ctaText: "Learn More",
+        ctaLink: "https://github.com/Sidharth004"
+      }
+    ]
+  },
   aboutMe: {
     title: "About Me",
     type: "about" as const,
@@ -180,11 +218,7 @@ const dotInfo = {
       }
     ]
   },
-  projects: {
-    title: "Projects",
-    content: "Your projects content here...",
-    type: "default"
-  },
+ 
   contact: {
     title: "Contact",
     type: "contact" as const,
