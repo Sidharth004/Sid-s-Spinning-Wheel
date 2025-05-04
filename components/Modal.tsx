@@ -1,6 +1,8 @@
 // Modal.tsx
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { TimelineModal } from "./timeline-modal";
 import GitHubContributions from "./GitHubContributions";
+import { SideQuestsModal } from "./side-quests-modal";
 
 interface AboutContent {
   mainContent: string;
@@ -10,6 +12,7 @@ interface AboutContent {
     linkedin: string;
   }
 }
+
 
 
 interface LinkText {
@@ -56,12 +59,22 @@ interface Contact {
   [key: string]: ContactInfo;
 }
 
+interface SideQuest {
+  id: string;
+  title: string;
+  description: string;
+  image: string | null;
+  ctaText: string;
+  ctaLink: string;
+}
+
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  content: string | Experience[] | Contact | WritingContent | AboutContent;
-  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github';
+  content: string | Experience[] | Contact | WritingContent | AboutContent| SideQuest[];
+  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github'|'sideQuests';
 }
 function RenderAchievement({ achievement }: { achievement: Achievement }) {
   if (!achievement.links) {
@@ -137,39 +150,59 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           {/* Main Content */}
           <div className="space-y-4 text-gray-700">
             <p className="leading-relaxed">
-              A 22-year-old CS Engineer with a deep love for crypto.
+              A 22 year old CS Undergrad who loves to build products and sky rocket brands!
+              Got introduced to crypto during covid - got my first industry breaktrhough in my sophomore year (2k22) - and now there's nooooo turning back.
             </p>
 
             <p className="leading-relaxed">
-              In my <em>tiny</em> 2.5-year journey in Web3, I've had the chance to wear multiple hats—ranging from development and research analysis to PM, growth, and BD. And honestly? I love them all.
+              Till date I've been lucky to wear multiple hats—ranging from development and research analysis to PM, BD, and Growth. And honestly? I love em all.
+              Soaking in everything with an open mind - with one goal in mind: becoming the best crypto polymath
             </p>
 
             <p className="leading-relaxed">
-              Right now, I'm diving deep into Growth and Product roles.
+              Right now, I'm Locked into Growth and Product roles.
             </p>
 
             <p className="leading-relaxed">
-              I started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on state-aggregated chains like Push Chain and Solana (loving it so far!).
-            </p>
-
-            <p className="leading-relaxed">
-              Though crypto takes up ¾ of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:
+              Though crypto takes up 7/4th of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:
             </p>
 
             <div className="pl-6 space-y-2">
               <p>⚽ Playing football (<em>Man City for life!</em>)</p>
               <p>📺 Binge-watching <em>Suits</em></p>
               <p>🚗 Going on long drives with my pals</p>
+              <p>🍞 Studying economics <em>(new hoob..its really cool!)</em></p>
             </div>
 
             <p className="leading-relaxed">
-              My near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.
+              My near-term goal? To contribute my best towards stable coin infra, consumer crypto apps and travel the world—living the true digital nomad life.
             </p>
+
+             {/* Timeline journey button */}
+             <div className="flex justify-center mt-6">
+              <TimelineModal
+                title="My Retardness Timeline"
+                xAxisLabel="Timeline"
+                yAxisLabel="Retardness"
+                yAxisValues={["Beginning", "Growing", "Established", "Advanced"]}
+                milestones={[
+                  { id: "1", x: 10, y: 15,  image: '/schoolbiz.jpg', caption: "School time Bizznesss", xLabel: "2014" },
+                  { id: "2", x: 25, y: 35, image: '/act.jpg', caption: "Sid + Humor + Acting = Housefull Show", xLabel: "2017"},
+                  { id: "3", x: 40, y: 55, image: '/standup.mp4', caption: "First Highschool standup", xLabel: "2019" },
+                  { id: "4", x: 60, y: 75, image: '/demo.jpeg', caption: "Genesis demo - Solana HH'23", xLabel: "2023" },
+                  { id: "5", x: 75, y: 85, image: '/football.jpeg', caption: "Always in the game", xLabel: "2023" },
+                  { id: "6", x: 90, y: 95, image: '/award.jpeg', caption: "Won best Int'l achievements award", xLabel: "2024" },
+                  { id: "7", x: 95, y: 80, image: '/tshirtpilot.jpeg', caption: "Clothing brand for nerds", xLabel: "2024" }
+                ]}
+                buttonText="My Retardness Timeline"
+                buttonVariant="custom"
+                buttonClassName="relative group overflow-hidden px-8 py-3 rounded-full bg-[#121220] text-white font-medium shadow-lg hover:shadow-purple-500/20 transition-all duration-300 border border-purple-500/30"
+              />
+            </div>
             </div>
   
             
-  
-              
+          
                
   
             {/* Social Links */}
@@ -257,7 +290,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           {/* Professional Writing Section */}
           <div className="space-y-8">
             <section>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Professional Writing</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Professional</h2>
               {writingContent.professional.map((yearGroup) => (
                 <div key={yearGroup.year} className="mb-8">
                   <h3 className="text-xl font-semibold text-gray-700 mb-4">{yearGroup.year}</h3>
@@ -284,7 +317,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
 
             {/* Personal Writing Section */}
             <section>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Personal Writing</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6 text">Personal</h2>
               <div className="space-y-4">
                 {writingContent.personal.map((blog, index) => (
                   <div key={index} className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
@@ -353,6 +386,18 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           </div>
         </DialogContent>
       </Dialog>
+    );
+  }
+  // Projects type modal
+  if (type === 'sideQuests') {
+    const projects = content as SideQuest[];
+    return (
+      <SideQuestsModal
+        isOpen={isOpen}
+        onClose={onClose}
+        title={title}
+        sideQuests={projects}
+      />
     );
   }
 

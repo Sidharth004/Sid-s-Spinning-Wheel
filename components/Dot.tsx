@@ -29,7 +29,9 @@ export function Dot({ index, totalDots, onClick, label }: DotProps) {
   useFrame((state) => {
     const time = state.clock.getElapsedTime()
     const angle = (time * 0.1 + (index * (Math.PI * 2)) / totalDots) % (Math.PI * 2)
-    const radius = 5
+    //const radius = 5
+    const radius = window.innerWidth < 768 ? 3.2 : 5
+
 
     // Calculate position
     const x = Math.cos(angle) * radius
@@ -130,7 +132,7 @@ export function Dot({ index, totalDots, onClick, label }: DotProps) {
       >
         <Text
           fontSize={0.8}
-          color="black"
+          color="white"
           anchorX="center"
           anchorY="middle"
           depthOffset={1}
