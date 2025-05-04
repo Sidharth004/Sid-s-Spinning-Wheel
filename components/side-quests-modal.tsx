@@ -30,7 +30,7 @@ export function SideQuestsModal({
       id: "1",
       title: "Scrap It",
       description: "Uber for door to door domestic scrap collection. Find nearby scrap collectors - schedule pickup from doorstep. Dignifying lives of domestic scrap pedlars :) ",
-      image: './public/LoadingScreen.png',
+      image: '/scrapit.png',
       ctaText: "Copyright Granted",
       ctaLink: "https://drive.google.com/file/d/1pb4pXkibDCQ8lhc1VYRMq77WH1PjlWZ-/view",
     },
@@ -42,22 +42,7 @@ export function SideQuestsModal({
       ctaText: "Learn More",
       ctaLink: "https://slight-imagine-556149.framer.app/",
     },
-    {
-      id: "3",
-      title: "UX Research",
-      description: "Understanding user behavior to create intuitive and effective digital experiences.",
-      image: null,
-      ctaText: "See Results",
-      ctaLink: "#",
-    },
-    {
-      id: "4",
-      title: "Cloud Migration",
-      description: "Moving legacy systems to cloud infrastructure for improved scalability and security.",
-      image: null,
-      ctaText: "Explore",
-      ctaLink: "#",
-    },
+   
   ],
 }: SideQuestsModalProps) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -93,7 +78,7 @@ export function SideQuestsModal({
       <DialogContent className="max-w-[90vw] max-h-[90vh] w-[800px] p-0 overflow-hidden bg-white flex flex-col">
         {/* Header */}
         <DialogHeader className="px-6 pt-4 pb-2 border-b bg-white z-10">
-          <DialogTitle className="text-2xl font-light tracking-wide">{title}</DialogTitle>
+          <DialogTitle className="tracking-tight text-3xl font-bold text-black mb-6">{title}</DialogTitle>
         </DialogHeader>
 
         {/* Side quest container - Fixed height with single side quest view */}

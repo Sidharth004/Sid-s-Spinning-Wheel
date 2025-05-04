@@ -38,7 +38,7 @@ const dotInfo = {
         id: "1",
         title: "Scrap It",
         description: "Uber for door to door domestic scrap collection. Find nearby scrap collectors - schedule pickup from doorstep. Dignifying lives of domestic scrap pedlars :) ",
-        image: './public/LoadingScreen.png',
+        image: '/scrapit.png',
         ctaText: "Copyright Granted",
         ctaLink: "https://drive.google.com/file/d/1pb4pXkibDCQ8lhc1VYRMq77WH1PjlWZ-/view",
       },
@@ -46,26 +46,11 @@ const dotInfo = {
         id: "2",
         title: "Get Me a Tshirt Daddy",
         description: "Meme merch clothing brand for nerds.",
-        image: null,
+        image: "/tee.png",
         ctaText: "Learn More",
         ctaLink: "https://slight-imagine-556149.framer.app/",
       },
-      {
-        id: "3",
-        title: "NFT Trait Customization",
-        description: "Built 'Wardrobe' - Solana's first NFT traits marketplace allowing users to customize their NFTs with interchangeable traits.",
-        image: "/projects/wardrobe.jpg",
-        ctaText: "Explore Platform",
-        ctaLink: "https://wardrobe.com"
-      },
-      {
-        id: "4",
-        title: "DeFi Yield Aggregator",
-        description: "Developed an automated yield farming tool that optimizes returns across multiple protocols based on risk preferences.",
-        image: "/projects/defi.jpg", 
-        ctaText: "Learn More",
-        ctaLink: "https://github.com/Sidharth004"
-      }
+      
     ]
   },
   writing: {
@@ -218,11 +203,7 @@ const dotInfo = {
       }
     ]
   },
-  projects: {
-    title: "Projects",
-    content: "Your projects content here...",
-    type: "default"
-  },
+
   contact: {
     title: "Contact",
     type: "contact" as const,
