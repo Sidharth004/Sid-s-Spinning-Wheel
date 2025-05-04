@@ -6,8 +6,8 @@ import { CentralObject } from "./CentralObject"
 import { Modal } from "@/components/Modal" 
 import { StarField } from './StarField'
 
-type DotInfoKey = 'writing' | 'experience' | 'projects' | 'github' | 'contact';
-const dotLabels: DotInfoKey[] = ['writing', 'experience', 'projects', 'github', 'contact'];
+type DotInfoKey = 'writing' | 'experience' | 'sideQuests' | 'github' | 'contact';
+const dotLabels: DotInfoKey[] = ['writing', 'experience', 'sideQuests', 'github', 'contact'];
 
 // Keep your existing dotInfo object unchanged
 const dotInfo = {
@@ -17,25 +17,38 @@ const dotInfo = {
     type: "github" as const,
     content: null
   },
-  projects: {
-    title: "My Projects",
-    type: "projects" as const,
+  aboutMe: {
+    title: "About Me",
+    type: "about" as const,
+    content: {
+      mainContent: "**Hey, I'm Sidharth!** A 22-year-old CS Engineer with a deep love for crypto.\n\nIn my *tiny* 2.5-year journey in Web3, I've had the chance to wear multiple hats—ranging from development and research analysis to PM, growth, and BD. And honestly? I love them all.\n\nRight now, I'm diving deep into Growth and Product roles.\n\nI started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on state-aggregated chains like Push Chain and Solana (loving it so far!).\n\nThough crypto takes up ¾ of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:\n⚽ Playing football (*Man City for life!*)\n📺 Binge-watching *Suits*\n🚗 Going on long drives with my pals\n\nMy near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.",
+      socialLinks: {
+        solscan: "https://solscan.io/address/YOUR_SOL_WALLET_ADDRESS",
+        twitter: "https://twitter.com/multichain_sid",
+        telegram: "https://t.me/multichain_sid",
+        linkedin: "https://www.linkedin.com/in/sidharth-kumthekar/"
+      }
+    }
+  },
+  sideQuests: {
+    title: "Side Quests",
+    type: "sideQuests" as const,
     content: [
       {
         id: "1",
-        title: "Web3 Portfolio Dashboard",
-        description: "A real-time dashboard for tracking crypto portfolio performance across multiple chains with customizable analytics.",
-        image: "/projects/portfolio.jpg",
-        ctaText: "View Project",
-        ctaLink: "https://github.com/Sidharth004"
+        title: "Scrap It",
+        description: "Uber for door to door domestic scrap collection. Find nearby scrap collectors - schedule pickup from doorstep. Dignifying lives of domestic scrap pedlars :) ",
+        image: './public/LoadingScreen.png',
+        ctaText: "Copyright Granted",
+        ctaLink: "https://drive.google.com/file/d/1pb4pXkibDCQ8lhc1VYRMq77WH1PjlWZ-/view",
       },
       {
         id: "2",
-        title: "Push Protocol Integration",
-        description: "Implemented decentralized notifications for dApps using Push Protocol, increasing user engagement by 40%.",
-        image: "/projects/push.jpg",
-        ctaText: "See Demo",
-        ctaLink: "https://push.org"
+        title: "Get Me a Tshirt Daddy",
+        description: "Meme merch clothing brand for nerds.",
+        image: null,
+        ctaText: "Learn More",
+        ctaLink: "https://slight-imagine-556149.framer.app/",
       },
       {
         id: "3",
@@ -54,19 +67,6 @@ const dotInfo = {
         ctaLink: "https://github.com/Sidharth004"
       }
     ]
-  },
-  aboutMe: {
-    title: "About Me",
-    type: "about" as const,
-    content: {
-      mainContent: "**Hey, I'm Sidharth!** A 22-year-old CS Engineer with a deep love for crypto.\n\nIn my *tiny* 2.5-year journey in Web3, I've had the chance to wear multiple hats—ranging from development and research analysis to PM, growth, and BD. And honestly? I love them all.\n\nRight now, I'm diving deep into Growth and Product roles.\n\nI started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on state-aggregated chains like Push Chain and Solana (loving it so far!).\n\nThough crypto takes up ¾ of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:\n⚽ Playing football (*Man City for life!*)\n📺 Binge-watching *Suits*\n🚗 Going on long drives with my pals\n\nMy near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.",
-      socialLinks: {
-        solscan: "https://solscan.io/address/YOUR_SOL_WALLET_ADDRESS",
-        twitter: "https://twitter.com/multichain_sid",
-        telegram: "https://t.me/multichain_sid",
-        linkedin: "https://www.linkedin.com/in/sidharth-kumthekar/"
-      }
-    }
   },
   writing: {
     title: "Technical Writing",
@@ -144,7 +144,7 @@ const dotInfo = {
     }
   },
   experience: {
-    title: "Professional Experience",
+    title: "Experience",
     type: "experience",
     content: [
       {
@@ -218,7 +218,11 @@ const dotInfo = {
       }
     ]
   },
- 
+  projects: {
+    title: "Projects",
+    content: "Your projects content here...",
+    type: "default"
+  },
   contact: {
     title: "Contact",
     type: "contact" as const,
@@ -284,7 +288,7 @@ export default function SpinningCoilScene() {
   }, []);
 
   const handleDotClick = (index: number) => {
-    const keys: DotInfoKey[] = ['writing', 'experience', 'projects', 'github', 'contact'];
+    const keys: DotInfoKey[] = ['writing', 'experience', 'sideQuests', 'github', 'contact'];
     setSelectedDot(keys[index]);
   };
 
@@ -337,18 +341,18 @@ export default function SpinningCoilScene() {
         <ambientLight intensity={0.8} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <spotLight position={[0, 5, 0]} intensity={0.5} penumbra={1} />
-        <group rotation={[-Math.PI / -3, 0, 0]}>
+        <group rotation={[-Math.PI / -0.4, -0.5, 0]}>
           <StarField /> 
           <SpinningCoil onDotClick={handleDotClick} />
           <CentralObject onClick={() => setShowAboutMe(true)} />
-          <Grid
+          {/* <Grid
             args={[40, 40]}
             cellSize={0.5}
             cellThickness={0.5}
             cellColor="#e0e0e0"
             fadeDistance={5}
             fadeStrength={1}
-          />
+          /> */}
         </group>
         <OrbitControls {...orbitControlProps} />
       </Canvas>

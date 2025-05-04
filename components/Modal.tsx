@@ -2,7 +2,7 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { TimelineModal } from "./timeline-modal";
 import GitHubContributions from "./GitHubContributions";
-import { ProjectsModal } from "./projects-modal";
+import { SideQuestsModal } from "./side-quests-modal";
 
 interface AboutContent {
   mainContent: string;
@@ -59,7 +59,7 @@ interface Contact {
   [key: string]: ContactInfo;
 }
 
-interface Project {
+interface SideQuest {
   id: string;
   title: string;
   description: string;
@@ -73,8 +73,8 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  content: string | Experience[] | Contact | WritingContent | AboutContent| Project[];
-  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github'|'projects';
+  content: string | Experience[] | Contact | WritingContent | AboutContent| SideQuest[];
+  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github'|'sideQuests';
 }
 function RenderAchievement({ achievement }: { achievement: Achievement }) {
   if (!achievement.links) {
@@ -186,16 +186,17 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
                 yAxisLabel="Retardness"
                 yAxisValues={["Beginning", "Growing", "Established", "Advanced"]}
                 milestones={[
-                  { id: "1", x: 10, y: 15,  image: '/scoolbiz.jpg', caption: "School time Bizznesss", xLabel: "2014" },
+                  { id: "1", x: 10, y: 15,  image: '/schoolbiz.jpg', caption: "School time Bizznesss", xLabel: "2014" },
                   { id: "2", x: 25, y: 35, image: '/act.jpg', caption: "Sid + Humor + Acting = Housefull Show", xLabel: "2017"},
                   { id: "3", x: 40, y: 55, image: '/standup.mp4', caption: "First Highschool standup", xLabel: "2019" },
                   { id: "4", x: 60, y: 75, image: '/demo.jpeg', caption: "Genesis demo - Solana HH'23", xLabel: "2023" },
                   { id: "5", x: 75, y: 85, image: '/football.jpeg', caption: "Always in the game", xLabel: "2023" },
                   { id: "6", x: 90, y: 95, image: '/award.jpeg', caption: "Won best Int'l achievements award", xLabel: "2024" },
-                  { id: "7", x: 95, y: 8, image: '/tshirtpilot.jpeg', caption: "Clothing brand for nerds", xLabel: "2024" }
+                  { id: "7", x: 95, y: 80, image: '/tshirtpilot.jpeg', caption: "Clothing brand for nerds", xLabel: "2024" }
                 ]}
                 buttonText="My Retardness Timeline"
-                buttonVariant="outline"
+                buttonVariant="custom"
+                buttonClassName="relative group overflow-hidden px-8 py-3 rounded-full bg-[#121220] text-white font-medium shadow-lg hover:shadow-purple-500/20 transition-all duration-300 border border-purple-500/30"
               />
             </div>
             </div>
@@ -388,14 +389,14 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
     );
   }
   // Projects type modal
-  if (type === 'projects') {
-    const projects = content as Project[];
+  if (type === 'sideQuests') {
+    const projects = content as SideQuest[];
     return (
-      <ProjectsModal
+      <SideQuestsModal
         isOpen={isOpen}
         onClose={onClose}
         title={title}
-        projects={projects}
+        sideQuests={projects}
       />
     );
   }

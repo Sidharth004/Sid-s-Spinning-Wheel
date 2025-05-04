@@ -9,13 +9,13 @@ interface SpinningCoilProps {
 }
 
 // Match these labels with the actual display text you want
-const dotLabels = ["Writing", "Experience", "Projects", "GitHub", "Contact"]
+const dotLabels = ["Writing", "Experience", "Side Quests", "GitHub", "Contact"]
 
 export function SpinningCoil({ onDotClick }: SpinningCoilProps) {
   const coilRef = useRef<THREE.Group>(null!)
 
   useFrame((state) => {
-    coilRef.current.rotation.z += 0.004
+    coilRef.current.rotation.z += 0.003
   })
 
   const points: THREE.Vector3[] = []

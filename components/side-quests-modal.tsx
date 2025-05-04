@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button"
 import { ImageIcon, ArrowRightIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
 
-interface Project {
+interface SideQuest {
   id: string
   title: string
   description: string
@@ -14,33 +14,33 @@ interface Project {
   ctaLink: string
 }
 
-interface ProjectsModalProps {
+interface SideQuestsModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  projects: Project[];
+  sideQuests: SideQuest[];
 }
 
-export function ProjectsModal({
+export function SideQuestsModal({
   isOpen,
   onClose,
-  title = "Projects",
-  projects = [
+  title = "Side Quests",
+  sideQuests = [
     {
       id: "1",
-      title: "Digital Transformation",
-      description: "Helping businesses adapt to the digital age with innovative solutions and strategies.",
-      image: null,
-      ctaText: "Learn More",
-      ctaLink: "#",
+      title: "Scrap It",
+      description: "Uber for door to door domestic scrap collection. Find nearby scrap collectors - schedule pickup from doorstep. Dignifying lives of domestic scrap pedlars :) ",
+      image: './public/LoadingScreen.png',
+      ctaText: "Copyright Granted",
+      ctaLink: "https://drive.google.com/file/d/1pb4pXkibDCQ8lhc1VYRMq77WH1PjlWZ-/view",
     },
     {
       id: "2",
-      title: "AI Integration",
-      description: "Implementing artificial intelligence to streamline operations and enhance decision making.",
+      title: "Get Me a Tshirt Daddy",
+      description: "Meme merch clothing brand for nerds.",
       image: null,
-      ctaText: "View Case Study",
-      ctaLink: "#",
+      ctaText: "Learn More",
+      ctaLink: "https://slight-imagine-556149.framer.app/",
     },
     {
       id: "3",
@@ -59,17 +59,17 @@ export function ProjectsModal({
       ctaLink: "#",
     },
   ],
-}: ProjectsModalProps) {
+}: SideQuestsModalProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Navigate to previous project
-  const prevProject = () => {
+  // Navigate to previous side quest
+  const prevSideQuest = () => {
     setActiveIndex((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
-  // Navigate to next project
-  const nextProject = () => {
-    setActiveIndex((prev) => (prev < projects.length - 1 ? prev + 1 : prev));
+  // Navigate to next side quest
+  const nextSideQuest = () => {
+    setActiveIndex((prev) => (prev < sideQuests.length - 1 ? prev + 1 : prev));
   };
 
   // Handle keyboard navigation
@@ -78,15 +78,15 @@ export function ProjectsModal({
       if (!isOpen) return;
       
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
-        nextProject();
+        nextSideQuest();
       } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-        prevProject();
+        prevSideQuest();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, projects.length]);
+  }, [isOpen, sideQuests.length]);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -96,11 +96,11 @@ export function ProjectsModal({
           <DialogTitle className="text-2xl font-light tracking-wide">{title}</DialogTitle>
         </DialogHeader>
 
-        {/* Project container - Fixed height with single project view */}
+        {/* Side quest container - Fixed height with single side quest view */}
         <div className="flex-1 p-4 overflow-hidden">
-          {projects.map((project, index) => (
+          {sideQuests.map((sideQuest, index) => (
             <div 
-              key={project.id}
+              key={sideQuest.id}
               className={`w-full transition-all duration-300 transform ${
                 index === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 absolute pointer-events-none'
               }`}
@@ -111,16 +111,16 @@ export function ProjectsModal({
                   {/* Content */}
                   <div className="flex flex-col justify-between p-6 md:w-[60%]">
                     <div>
-                      <h3 className="font-medium text-xl mb-3">{project.title}</h3>
-                      <p className="text-gray-600 mb-6">{project.description}</p>
+                      <h3 className="font-medium text-xl mb-3">{sideQuest.title}</h3>
+                      <p className="text-gray-600 mb-6">{sideQuest.description}</p>
                     </div>
                     <Button
                       variant="outline"
                       className="w-full md:w-auto justify-between border-gray-300 hover:bg-gray-50"
                       asChild
                     >
-                      <a href={project.ctaLink} target="_blank" rel="noopener noreferrer">
-                        {project.ctaText}
+                      <a href={sideQuest.ctaLink} target="_blank" rel="noopener noreferrer">
+                        {sideQuest.ctaText}
                         <ArrowRightIcon className="h-4 w-4 ml-2" />
                       </a>
                     </Button>
@@ -128,10 +128,10 @@ export function ProjectsModal({
 
                   {/* Image */}
                   <div className="md:w-[40%] h-[200px] md:h-auto bg-gray-100 flex items-center justify-center">
-                    {project.image ? (
+                    {sideQuest.image ? (
                       <img
-                        src={project.image}
-                        alt={project.title}
+                        src={sideQuest.image}
+                        alt={sideQuest.title}
                         className="w-full h-full object-cover"
                       />
                     ) : (
@@ -150,14 +150,14 @@ export function ProjectsModal({
         <div className="border-t border-gray-100 p-3 flex justify-between items-center bg-white z-10">
           {/* Dot indicators */}
           <div className="flex-1 flex justify-center space-x-2">
-            {projects.map((_, index) => (
+            {sideQuests.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
                   activeIndex === index ? 'bg-black' : 'bg-gray-300'
                 }`}
-                aria-label={`Go to project ${index + 1}`}
+                aria-label={`Go to side quest ${index + 1}`}
               />
             ))}
           </div>
@@ -167,21 +167,21 @@ export function ProjectsModal({
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={prevProject}
+              onClick={prevSideQuest}
               disabled={activeIndex === 0}
               className={`text-gray-500 hover:text-black ${activeIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               <ChevronUpIcon className="h-4 w-4" />
             </Button>
             
-            <span className="text-sm text-gray-500">{activeIndex + 1} / {projects.length}</span>
+            <span className="text-sm text-gray-500">{activeIndex + 1} / {sideQuests.length}</span>
             
             <Button 
               variant="ghost" 
               size="sm" 
-              onClick={nextProject}
-              disabled={activeIndex === projects.length - 1}
-              className={`text-gray-500 hover:text-black ${activeIndex === projects.length - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
+              onClick={nextSideQuest}
+              disabled={activeIndex === sideQuests.length - 1}
+              className={`text-gray-500 hover:text-black ${activeIndex === sideQuests.length - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               <ChevronDownIcon className="h-4 w-4" />
             </Button>
@@ -190,4 +190,4 @@ export function ProjectsModal({
       </DialogContent>
     </Dialog>
   )
-}
+} 

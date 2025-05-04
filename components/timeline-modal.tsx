@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Button } from "@/components/ui/button"
 import { useState, useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { ImageIcon } from "lucide-react"
+import { ImageIcon, ArrowRightIcon } from "lucide-react"
 
 interface Milestone {
   id: string
@@ -23,7 +23,8 @@ interface TimelineModalProps {
   yAxisValues?: string[]
   milestones: Milestone[]
   buttonText?: string
-  buttonVariant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
+  buttonVariant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "custom"
+  buttonClassName?: string
 }
 
 export function TimelineModal({
@@ -33,7 +34,8 @@ export function TimelineModal({
   yAxisValues = ["a", "z", "y", "x"],
   milestones = [],
   buttonText = "View My Journey",
-  buttonVariant = "outline"
+  buttonVariant = "outline",
+  buttonClassName
 }: TimelineModalProps) {
   const [open, setOpen] = useState(false)
   const graphRef = useRef<HTMLDivElement>(null)
@@ -69,9 +71,20 @@ export function TimelineModal({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant={buttonVariant}>{buttonText}</Button>
-      </DialogTrigger>
+        <DialogTrigger asChild>
+          {buttonVariant === "custom" ? (
+            // Custom styled button
+            <button className={buttonClassName}>
+              <div className="flex items-center space-x-2">
+                <span>{buttonText}</span>
+                <ArrowRightIcon className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
+              </div>
+            </button>
+          ) : (
+            // Regular button using UI component
+            <Button variant={buttonVariant}>{buttonText}</Button>
+          )}
+        </DialogTrigger>
       <DialogContent className="max-w-[95vw] max-h-[90vh] w-[1000px] h-[700px]">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold mb-2">{title}</DialogTitle>
