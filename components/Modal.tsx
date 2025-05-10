@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { TimelineModal } from "./timeline-modal";
 import GitHubContributions from "./GitHubContributions";
 import { SideQuestsModal } from "./side-quests-modal";
+import { GrowthJams } from "./growth-jams";
 
 interface AboutContent {
   mainContent: string;
@@ -13,6 +14,14 @@ interface AboutContent {
   }
 }
 
+interface GrowthJams {
+  id: string;
+  title: string;
+  description: string;
+  image: string | null;
+  ctaText: string;
+  ctaLink: string;
+}
 
 
 interface LinkText {
@@ -73,8 +82,8 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  content: string | Experience[] | Contact | WritingContent | AboutContent| SideQuest[];
-  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github'|'sideQuests';
+  content: string | Experience[] | Contact | WritingContent | AboutContent| SideQuest[] | GrowthJams[];
+  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github'|'sideQuests'|'growthJams';
 }
 function RenderAchievement({ achievement }: { achievement: Achievement }) {
   if (!achievement.links) {
@@ -263,6 +272,17 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           
         </DialogContent>
       </Dialog>
+    );
+  }
+  if (type === 'growthJams') {
+    const portfolioItems = content as GrowthJams[];
+    return (
+      <GrowthJams
+        isOpen={isOpen}
+        onClose={onClose}
+        title={title}
+        portfolioItems={portfolioItems}
+      />
     );
   }
   // Experience type modal

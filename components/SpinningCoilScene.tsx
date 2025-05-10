@@ -6,8 +6,8 @@ import { CentralObject } from "./CentralObject"
 import { Modal } from "@/components/Modal" 
 import { StarField } from './StarField'
 
-type DotInfoKey = 'writing' | 'experience' | 'sideQuests' | 'github' | 'contact';
-const dotLabels: DotInfoKey[] = ['writing', 'experience', 'sideQuests', 'github', 'contact'];
+type DotInfoKey = 'writing' | 'experience' | 'sideQuests' | 'github' | 'contact'|'growthJams';
+const dotLabels: DotInfoKey[] = ['writing', 'experience', 'sideQuests', 'github', 'contact','growthJams'];
 
 // Keep your existing dotInfo object unchanged
 const dotInfo = {
@@ -53,6 +53,61 @@ const dotInfo = {
       
     ]
   },
+  growthJams: {
+    title: "growthJams",
+    type: "growthJams" as const,
+    content: [
+      {
+        id: "1",
+        title: "DeFi Dashboard",
+        description: "Real-time tracking of crypto portfolios with customizable analytics.",
+        image: "/portfolio/defi.jpg",
+        ctaText: "View Project",
+        ctaLink: "https://github.com/yourusername/defi-dashboard",
+      },
+      {
+        id: "2",
+        title: "NFT Marketplace",
+        description: "A platform for trading digital collectibles with built-in wallet integration.",
+        image: "/portfolio/nft.jpg",
+        ctaText: "Explore Demo",
+        ctaLink: "https://nft-demo.yourdomain.com",
+      },
+      {
+        id: "3",
+        title: "Web3 Authentication",
+        description: "Secure login solution using blockchain technology for web applications.",
+        image: "/portfolio/auth.jpg",
+        ctaText: "See Documentation",
+        ctaLink: "https://docs.yourdomain.com/web3-auth",
+      },
+      {
+        id: "4",
+        title: "Smart Contract Library",
+        description: "Collection of audited smart contracts for common DeFi operations.",
+        image: "/portfolio/smart-contracts.jpg",
+        ctaText: "View on GitHub",
+        ctaLink: "https://github.com/yourusername/smart-contracts",
+      },
+      {
+        id: "5",
+        title: "Tokenization Platform",
+        description: "Infrastructure for creating and managing tokenized assets.",
+        image: "/portfolio/tokens.jpg",
+        ctaText: "Read Case Study",
+        ctaLink: "https://yourdomain.com/case-studies/tokenization",
+      },
+      {
+        id: "6", 
+        title: "DAO Governance Tool",
+        description: "Framework for decentralized decision making and proposal voting.",
+        image: "/portfolio/dao.jpg",
+        ctaText: "Try Demo",
+        ctaLink: "https://dao-demo.yourdomain.com",
+      }
+    ]
+  },
+  
   writing: {
     title: "Technical Writing",
     type: "writing" as const,
@@ -269,7 +324,7 @@ export default function SpinningCoilScene() {
   }, []);
 
   const handleDotClick = (index: number) => {
-    const keys: DotInfoKey[] = ['writing', 'experience', 'sideQuests', 'github', 'contact'];
+    const keys: DotInfoKey[] = ['writing', 'experience', 'sideQuests', 'github', 'contact','growthJams'];
     setSelectedDot(keys[index]);
   };
 
