@@ -175,7 +175,7 @@ const dotInfo = {
           {
             text: "Conceptualized and executed a series of reputation-based points programs, driving Push Chain’s journey to Mainnet - onboarding 90,000+ Push Chain users, ~1 Million Devnet Txns and increasing notifications protocol revenue by $76,000 in 7 days.",
             links: [
-              { text: "points program", url: "https://push.org/points" }
+              { text: "points programs", url: "https://push.org/points" }
             ]
           },
           {text:"Onboarded eight Tier A/B partners like SpaceID, QuickSwap for joint points program activities."},
@@ -193,7 +193,7 @@ const dotInfo = {
         achievements: [
           { 
             text:" Led 10-member team across design, dev, and marketing to launch ‘Wardrobe.live’- Solana’s first NFT traits marketplace and NFT customization platform - from 0 to launch in 5 months.",
-            links:[{text:"Wardrobe", url:"https://wardrobe.com"}]
+            links:[{text:"Wardrobe.live", url:"https://wardrobe.com"}]
           },
           {
             text:"Represented Wardrobe.live on the main stage at Solana Hacker House- Mumbai ’23, securing multiple partnerships and a 45% growth in first-time transactions.",
@@ -213,10 +213,12 @@ const dotInfo = {
         location: "San Francisco (Remote)",
         achievements: [
           {
-            text:"Authored technical guides on Solana Programming Library, Rollups, Modular Blockchains, and Subgraphs, averaging 50,000 monthly views."
+            text:"Authored technical guides on Solana Programming Library, Rollups, Modular Blockchains, and Subgraphs, averaging 50,000 monthly views.",
+            links:[{text:"Authored technical guides",url:"https://www.alchemy.com/author/sidharth-kumthekar"}]
           },
           {
-            text:"Researched and published short-form insights on 100+ Web3 DApps and tools for Alchemy DappStore - helping scale the world’s largest blockchain tools directory."
+            text:"Researched and published short-form insights on 100+ Web3 DApps and tools for Alchemy DappStore - helping scale the world’s largest blockchain tools directory.",
+            links:[{text:"world’s largest blockchain tools directory",url:"https://www.alchemy.com/dapps"}]
           }
         ]
       },
@@ -228,8 +230,10 @@ const dotInfo = {
         location: "India, Onsite",
         achievements: [
           {
-            text:"Designed and inplemented a serverless Retrieval-Augmented Generation (RAG) workflow to process 400+ corporate sustainability reports, enabling complex graph + text extraction, reasoning, achieving 86% accuracy."
-          }
+            text:"Designed and inplemented a serverless Retrieval-Augmented Generation (RAG) workflow to process 400+ corporate sustainability reports, enabling complex graph + text extraction, reasoning, achieving 86% accuracy.",
+            links:[{text:"serverless Retrieval-Augmented Generation (RAG) workflow",url:"https://www.reblueventures.com/SustainSwift"}]
+          } 
+          
         ],
         tech: "Python, Google Cloud Suite, Google Gemini, Text-Bison, Cloud Functions, Langchain, SQL."
       }
