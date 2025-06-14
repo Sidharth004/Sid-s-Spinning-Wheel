@@ -51,6 +51,14 @@ export function GrowthJams({
       ctaText: "Glance in detail",
       ctaLink: "https://docs.google.com/document/d/1jRo-ISJNKPz_2FEaOLZ35OiTt4KZ4HW-mWuHyAqhdm8/edit?usp=sharing",
     },
+    {
+      id: "4",
+      title: "3 Easy tips for turbocharging the Eclipse Ecosystem",
+      description: "marketing-focused tips for shaping, sustaining, and expanding Eclipse’s ecosystem around the globe!",
+      image: "/eclipse_growthtips.png",
+      ctaText: "Here's How",
+      ctaLink: "https://docs.google.com/document/d/1fCZSz4u4iXt0oObJUA6Lw-ng4yRsTwgHmKSAtw6uBcc/edit?usp=sharing",
+    },
     
   ],
 }: GridPortfolioModalProps) {
