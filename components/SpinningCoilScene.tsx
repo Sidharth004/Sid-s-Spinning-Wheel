@@ -21,7 +21,7 @@ const dotInfo = {
     title: "About Me",
     type: "about" as const,
     content: {
-      mainContent: "**Hey, I'm Sidharth!** A 22-year-old CS Engineer with a deep love for crypto.\n\nIn my *tiny* 2.5-year journey in Web3, I've had the chance to wear multiple hats—ranging from development and research analysis to PM, growth, and BD. And honestly? I love them all.\n\nRight now, I'm diving deep into Growth and Product roles.\n\nI started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on state-aggregated chains like Push Chain and Solana (loving it so far!).\n\nThough crypto takes up ¾ of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:\n⚽ Playing football (*Man City for life!*)\n📺 Binge-watching *Suits*\n🚗 Going on long drives with my pals\n\nMy near-term goal? To contribute my best to consumer crypto applications and travel the world—living the true digital nomad life.",
+      mainContent: "**Hey, I'm Sidharth!** A 22-year-old CS Engineer with a deep love for crypto.\n\nIn my *tiny* 2.5-year journey in Web3, I've had the chance to wear multiple hats, ranging from development, research and analysis to PM, growth, and BD. And honestly? I love them all.\n\nRight now, I'm diving deep into Growth and Product roles.\n\nI started my professional Web3 journey in my sophomore year with Ethereum, and lately, I've been focusing more on cross chain and hyper scalable infra solutions like Push Chain and Solana (loving it so far!).\n\nThough crypto takes up ¾ of my day—whether it's work, research, or trenching. When it's time to touch grass, you'll find me:\n⚽ Playing football (*Man City for life!*)\n📺 Binge-watching *Suits*\n🚗 Going on long drives with my pals\n\nMy near-term goal? To contribute my best to consumer crypto applications and travel the world living the true digital nomad life.",
       socialLinks: {
         solscan: "https://solscan.io/address/YOUR_SOL_WALLET_ADDRESS",
         twitter: "https://twitter.com/multichain_sid",
@@ -98,6 +98,17 @@ const dotInfo = {
     type: "writing" as const,
     content: {
       professional: [
+
+        {
+          year: 2025,
+          blogs:[
+            {
+              title:"Is Push Chain Another L1?",
+              url:"https://push.org/blog/another-l1/",
+              label:"Explainer"
+            }
+          ]
+        },
         {
           year: 2024,
           blogs: [
@@ -173,23 +184,27 @@ const dotInfo = {
     type: "experience",
     content: [
       {
-        company: "Push Protocol",
+        company: "Push Protocol (Push Chain)",
         companyUrl: "https://push.org",
         role: "Growth",
         duration: "Feb. 2024 – Present",
         location: "Dubai (Remote)",
         achievements: [
-          {text:"Directed a use-case-driven social campaign, growing protocol users by 160% (adding 53,000 new users in one month)."},
+          {text:"Directed 15+ marketing campaigns. One of which, grew protocol users by 160% (adding 53,000 new users in one month)."},
           {
             text: "Conceptualized and executed a series of reputation-based points programs, driving Push Chain’s journey to Mainnet - onboarding 90,000+ Push Chain users, ~1 Million Devnet Txns and increasing notifications protocol revenue by $76,000 in 7 days.",
             links: [
               { text: "points programs", url: "https://push.org/points" }
             ]
           },
-          {text:"Onboarded eight Tier A/B partners like SpaceID, QuickSwap for joint points program activities."},
+          {text:"Onboarded 8+ Tier A partners like SpaceID, QuickSwap for joint points program activities."},
           {text:"Designed an acquisition funnel for Push’s NFT gated group chat feature, achieving 87% VIP user conversion within 3 hours of launch."},
           {text:"Authored 15+ research pieces, product case studies, and ecosystem blogs to establish Push as a leader in Omni chain tech and Web3 communications."},
-          {text:"Managed Galxe campaigns, KOL onboarding and investor communications to amplify Push's market presence."}
+          {text:"Managed Galxe campaigns, KOL onboarding and investor communications to amplify Push's market presence."},
+          {
+            text:"Scribed the rebranding lore for Push Communications Protocol -> Push Chain",
+            links:[{text:"Push Communications Protocol", url:"https://x.com/PushChain/status/1951645144832152007"},{text:"Push Chain", url:"https://x.com/PushChain/status/1953464954767442241"}]
+          }
         ]
       },
       {

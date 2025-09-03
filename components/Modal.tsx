@@ -164,8 +164,8 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             </p>
 
             <p className="leading-relaxed">
-              Till date I've been lucky to wear multiple hats—ranging from development and research analysis to PM, BD, and Growth. And honestly? I love em all.
-              Soaking in everything with an open mind - with one goal in mind: becoming the best crypto polymath
+              Till date I've been lucky to wear multiple hats, ranging from development and research analysis to PM, BD, and Growth. And honestly? I love em all.
+              Soaking in everything with an open mind with one goal in mind: becoming the best crypto polymath 🧙
             </p>
 
             <p className="leading-relaxed">
@@ -173,7 +173,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             </p>
 
             <p className="leading-relaxed">
-              Though crypto takes up 7/4th of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:
+              Though crypto takes up 7/4th of my day - whether it's work, research, or trenching. When it's time to touch grass, you'll find me:
             </p>
 
             <div className="pl-6 space-y-2">
@@ -184,7 +184,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             </div>
 
             <p className="leading-relaxed">
-              My near-term goal? To contribute my best towards stable coin infra, consumer crypto apps and travel the world—living the true digital nomad life.
+              My near-term goal? To contribute my best towards cross chain infra, consumer crypto apps and travel the world living the true digital nomad life.
             </p>
 
              {/* Timeline journey button */}
