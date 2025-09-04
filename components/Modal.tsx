@@ -201,7 +201,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
                   { id: "4", x: 60, y: 75, image: '/demo.jpeg', caption: "Genesis demo - Solana HH'23", xLabel: "2023" },
                   { id: "5", x: 75, y: 85, image: '/football.jpeg', caption: "Always in the game", xLabel: "2023" },
                   { id: "6", x: 90, y: 95, image: '/award.jpeg', caption: "Won best Int'l achievements award", xLabel: "2024" },
-                  { id: "7", x: 95, y: 80, image: '/tshirtpilot.jpeg', caption: "Clothing brand for nerds", xLabel: "2024" }
+                  { id: "7", x: 95, y: 80, image: '/tshirtpilot.jpeg', caption: " Launched clothing brand for nerds", xLabel: "2024" }
                 ]}
                 buttonText="My Retardness Timeline"
                 buttonVariant="custom"
