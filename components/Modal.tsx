@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { TimelineModal } from "./timeline-modal";
 import GitHubContributions from "./GitHubContributions";
 import { SideQuestsModal } from "./side-quests-modal";
+import { GrowthJams } from "./growth-jams";
 
 interface AboutContent {
   mainContent: string;
@@ -13,6 +14,14 @@ interface AboutContent {
   }
 }
 
+interface GrowthJams {
+  id: string;
+  title: string;
+  description: string;
+  image: string | null;
+  ctaText: string;
+  ctaLink: string;
+}
 
 
 interface LinkText {
@@ -73,8 +82,8 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  content: string | Experience[] | Contact | WritingContent | AboutContent| SideQuest[];
-  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github'|'sideQuests';
+  content: string | Experience[] | Contact | WritingContent | AboutContent| SideQuest[] | GrowthJams[];
+  type?: 'experience' | 'contact' | 'writing' | 'about' | 'default'|'github'|'sideQuests'|'growthJams';
 }
 function RenderAchievement({ achievement }: { achievement: Achievement }) {
   if (!achievement.links) {
@@ -151,12 +160,12 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           <div className="space-y-4 text-gray-700">
             <p className="leading-relaxed">
               A 22 year old CS Undergrad who loves to build products and sky rocket brands!
-              Got introduced to crypto during covid - got my first industry breaktrhough in my sophomore year (2k22) - and now there's nooooo turning back.
+              Got introduced to crypto during covid - got my first industry breakthrough in my sophomore year (2k22) - and now there's nooooo turning back.
             </p>
 
             <p className="leading-relaxed">
-              Till date I've been lucky to wear multiple hats—ranging from development and research analysis to PM, BD, and Growth. And honestly? I love em all.
-              Soaking in everything with an open mind - with one goal in mind: becoming the best crypto polymath
+              Till date I've been lucky to wear multiple hats, ranging from development and research analysis to PM, BD, and Growth. And honestly? I love em all.
+              Soaking in everything with an open mind with one goal in mind: becoming the best crypto polymath 🧙
             </p>
 
             <p className="leading-relaxed">
@@ -164,7 +173,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             </p>
 
             <p className="leading-relaxed">
-              Though crypto takes up 7/4th of my day—whether it's work, research, or trenching—when it's time to touch grass, you'll find me:
+              Though crypto takes up 7/4th of my day - whether it's work, research, or trenching. When it's time to touch grass, you'll find me:
             </p>
 
             <div className="pl-6 space-y-2">
@@ -175,7 +184,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             </div>
 
             <p className="leading-relaxed">
-              My near-term goal? To contribute my best towards stable coin infra, consumer crypto apps and travel the world—living the true digital nomad life.
+              My near-term goal? To contribute my best towards cross chain infra, consumer crypto apps and travel the world living the true digital nomad life.
             </p>
 
              {/* Timeline journey button */}
@@ -192,7 +201,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
                   { id: "4", x: 60, y: 75, image: '/demo.jpeg', caption: "Genesis demo - Solana HH'23", xLabel: "2023" },
                   { id: "5", x: 75, y: 85, image: '/football.jpeg', caption: "Always in the game", xLabel: "2023" },
                   { id: "6", x: 90, y: 95, image: '/award.jpeg', caption: "Won best Int'l achievements award", xLabel: "2024" },
-                  { id: "7", x: 95, y: 80, image: '/tshirtpilot.jpeg', caption: "Clothing brand for nerds", xLabel: "2024" }
+                  { id: "7", x: 95, y: 80, image: '/tshirtpilot.jpeg', caption: " Launched clothing brand for nerds", xLabel: "2024" }
                 ]}
                 buttonText="My Retardness Timeline"
                 buttonVariant="custom"
@@ -263,6 +272,17 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           
         </DialogContent>
       </Dialog>
+    );
+  }
+  if (type === 'growthJams') {
+    const portfolioItems = content as GrowthJams[];
+    return (
+      <GrowthJams
+        isOpen={isOpen}
+        onClose={onClose}
+        title={title}
+        portfolioItems={portfolioItems}
+      />
     );
   }
   // Experience type modal

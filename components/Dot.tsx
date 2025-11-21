@@ -15,7 +15,8 @@ const auraColors = {
   1: ["#4ecdc4", "#00fff222"], // Experience
   2: ["#9d65c9", "#8a2be222"], // Projects
   3: ["#5ca0f2", "#0066ff22"], // Github
-  4: ["#95e082", "#00ff0022"]  // Contact
+  4: ["#95e082", "#00ff0022"],  // Contact
+  5: ["#ffa726", "#ff9800"] 
 }
 
 export function Dot({ index, totalDots, onClick, label }: DotProps) {
