@@ -159,7 +159,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           {/* Main Content */}
           <div className="space-y-4 text-gray-700">
             <p className="leading-relaxed">
-              A 22 year old CS Undergrad who loves to build products and sky rocket brands!
+              A 23 year old CS Undergrad who loves to build products and sky rocket brands!
               Got introduced to crypto during covid - got my first industry breakthrough in my sophomore year (2k22) - and now there's nooooo turning back.
             </p>
 

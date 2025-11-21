@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(request: Request) {
   const GITHUB_API_URL = 'https://api.github.com/graphql';
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
@@ -39,7 +42,7 @@ export async function GET(request: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ query }),
-      cache: 'no-store',
+      
     });
 
     if (!response.ok) {
