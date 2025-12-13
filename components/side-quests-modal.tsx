@@ -28,6 +28,14 @@ export function SideQuestsModal({
   sideQuests = [
     {
       id: "1",
+      title: "BaldyCollector",
+      description: "Scan Bald Legends at Solana Baldpoint'25 (Breakpoint). Top the Bald Counter Leadboard. Win $bald airdrop from the Baldcoin community (NFA!!)  ",
+      image: '/baldycollector.png',
+      ctaText: "Try Here (no wallet connection required)",
+      ctaLink: "https://baldycollector.vercel.app",
+    },
+    {
+      id: "2",
       title: "Scrap It",
       description: "Uber for door to door domestic scrap collection. Find nearby scrap collectors - schedule pickup from doorstep. Dignifying lives of domestic scrap pedlars :) ",
       image: '/scrapit.png',
@@ -35,7 +43,7 @@ export function SideQuestsModal({
       ctaLink: "https://drive.google.com/file/d/1pb4pXkibDCQ8lhc1VYRMq77WH1PjlWZ-/view",
     },
     {
-      id: "2",
+      id: "3",
       title: "Get Me a Tshirt Daddy",
       description: "Meme merch clothing brand for nerds.",
       image: null,

@@ -43,6 +43,14 @@ const dotInfo = {
         ctaLink: "https://drive.google.com/file/d/1pb4pXkibDCQ8lhc1VYRMq77WH1PjlWZ-/view",
       },
       {
+      id: "2",
+      title: "BaldyCollector",
+      description: "Scan Bald Legends at Solana Baldpoint'25 (Breakpoint). Top the Bald Counter Leadboard. Win $bald airdrop from the Baldcoin community (NFA!!)  ",
+      image: '/baldycollector.jpeg',
+      ctaText: "Try Here (no wallet connection required)",
+      ctaLink: "https://baldycollector.vercel.app",
+      },
+      {
         id: "2",
         title: "Get Me a Tshirt Daddy",
         description: "Meme merch clothing brand for nerds.",
@@ -105,6 +113,11 @@ const dotInfo = {
             {
               title:"Is Push Chain Another L1?",
               url:"https://push.org/blog/another-l1/",
+              label:"Explainer"
+            },
+            {
+              title: "What are Universal Executor Accounts (UEAs) and How do they work?",
+              url:"https://push.org/blog/what-are-universal-executor-accounts/",
               label:"Explainer"
             }
           ]
