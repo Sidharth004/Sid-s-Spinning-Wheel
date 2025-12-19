@@ -26,7 +26,7 @@ const dotInfo = {
         solscan: "https://solscan.io/address/YOUR_SOL_WALLET_ADDRESS",
         twitter: "https://twitter.com/multichain_sid",
         telegram: "https://t.me/multichain_sid",
-        linkedin: "https://www.linkedin.com/in/sidharth-kumthekar/"
+        linkedin: "https://www.linkedin.com/in/sidharth-kumthekar04r-70772b1a7/"
       }
     }
   },
