@@ -205,9 +205,9 @@ const dotInfo = {
         achievements: [
           {text:"Directed 15+ marketing campaigns. One of which, grew protocol users by 160% (adding 53,000 new users in one month)."},
           {
-            text: "Conceptualized and executed a series of reputation-based points programs, driving Push Chain’s journey to Mainnet - onboarding 90,000+ Push Chain users, ~1 Million Devnet Txns and increasing notifications protocol revenue by $76,000 in 7 days.",
+            text: "Conceptualized and executed a series of reputation-based points programs, driving Push Chain’s journey to Mainnet - onboarding 90,000+ Push Chain users, ~ 5 Million Testnet Txns and increasing notifications protocol revenue by $76,000 in 7 days.",
             links: [
-              { text: "points programs", url: "https://push.org/points" }
+              { text: "points programs", url: "https://portal.push.org/" }
             ]
           },
           {text:"Onboarded 8+ Tier A partners like SpaceID, QuickSwap for joint points program activities."},
