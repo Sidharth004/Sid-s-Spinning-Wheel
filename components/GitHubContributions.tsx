@@ -73,7 +73,7 @@ const GitHubContributions = () => {
             GitHub Contributions
           </CardTitle>
           <div className="text-sm text-gray-600">
-            {contributions.totalContributions} contributions in 2025
+            {contributions.totalContributions} contributions in {new Date().getFullYear()}
           </div>
           <Button 
             className="bg-[#24292e] hover:bg-[#1b1f23] text-white flex items-center gap-2"

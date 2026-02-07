@@ -1,74 +1,31 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { ImageIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
+import type { GrowthJam } from "@/data/portfolio"
 
-interface GrowthJams {
-  id: string
-  title: string
-  description: string
-  image: string | null
-  ctaText: string
-  ctaLink: string
-}
-
-interface GridPortfolioModalProps {
+interface GrowthJamsModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
-  portfolioItems: GrowthJams[];
+  portfolioItems: GrowthJam[];
 }
 
-export function GrowthJams({
+export function GrowthJamsModal({
   isOpen,
   onClose,
   title = "Portfolio",
-  portfolioItems = [
-    {
-      id: "1",
-      title: "Growth Tips for Superscaling Dynamic",
-      description: "Focussed on strengthening 3 key pillars: 1) Narrative & Brand Positioning || 2) Distribution & Activation || 3) Education & Thought Leadership ",
-      image: "/dynamic_growthtips.jpg",
-      ctaText: "Complete Revealation",
-      ctaLink: "https://www.notion.so/Growth-Marketing-Tips-to-Super-Scale-Dynamic-1ce3f0bf4809806da9fcf4b35aa443b4?pvs=4",
-    },
-    {
-      id: "2",
-      title: "Content & Growth Hacking Tips for Crossmint",
-      description: "Crossmint is a dev tool provider for crypto apps - known best for its user onboarding tools, payment rails and AI agent SDKs",
-      image: "/crossmint_growthtips.png",
-      ctaText: "Know More",
-      ctaLink: "https://docs.google.com/document/d/1WfQIx86dZHiQcpsvrI7XG_RSPAnAJIpwx98o0yuKYjA/edit?usp=sharing",
-    },
-   
-    {
-      id: "3",
-      title: "Marketing Ideas for super scaling Phantom’s adoption",
-      description: "Focussed on User Icentives & Community Love",
-      image: "/phantom_growthtips.png",
-      ctaText: "Glance in detail",
-      ctaLink: "https://docs.google.com/document/d/1jRo-ISJNKPz_2FEaOLZ35OiTt4KZ4HW-mWuHyAqhdm8/edit?usp=sharing",
-    },
-    {
-      id: "4",
-      title: "3 Easy tips for turbocharging the Eclipse Ecosystem",
-      description: "marketing-focused tips for shaping, sustaining, and expanding Eclipse’s ecosystem around the globe!",
-      image: "/eclipse_growthtips.png",
-      ctaText: "Here's How",
-      ctaLink: "https://docs.google.com/document/d/1fCZSz4u4iXt0oObJUA6Lw-ng4yRsTwgHmKSAtw6uBcc/edit?usp=sharing",
-    },
-    
-  ],
-}: GridPortfolioModalProps) {
+  portfolioItems,
+}: GrowthJamsModalProps) {
   const itemsPerPage = 4;
   const [currentPage, setCurrentPage] = useState(0);
   const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
-  
+
   // Calculate visible items based on current page
   const visibleItems = portfolioItems.slice(
-    currentPage * itemsPerPage, 
+    currentPage * itemsPerPage,
     (currentPage + 1) * itemsPerPage
   );
 
@@ -89,7 +46,7 @@ export function GrowthJams({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
-      
+
       if (e.key === 'ArrowRight') {
         goToNextPage();
       } else if (e.key === 'ArrowLeft') {
@@ -115,7 +72,7 @@ export function GrowthJams({
         <div className="flex-1 p-6 overflow-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {visibleItems.map((item) => (
-              <div 
+              <div
                 key={item.id}
                 className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
               >
@@ -133,7 +90,7 @@ export function GrowthJams({
                     </div>
                   )}
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-4">
                   <h3 className="font-medium text-xl mb-2">{item.title}</h3>
@@ -170,12 +127,12 @@ export function GrowthJams({
                 />
               ))}
             </div>
-            
+
             {/* Navigation buttons */}
             <div className="flex items-center space-x-4">
-              <Button 
-                variant="ghost" 
-                size="sm" 
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={goToPrevPage}
                 disabled={currentPage === 0}
                 className={`text-gray-500 hover:text-black ${currentPage === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -183,14 +140,14 @@ export function GrowthJams({
                 <ChevronLeftIcon className="h-4 w-4 mr-1" />
                 Previous
               </Button>
-              
+
               <span className="text-sm text-gray-500">
                 Page {currentPage + 1} of {totalPages}
               </span>
-              
-              <Button 
-                variant="ghost" 
-                size="sm" 
+
+              <Button
+                variant="ghost"
+                size="sm"
                 onClick={goToNextPage}
                 disabled={currentPage === totalPages - 1}
                 className={`text-gray-500 hover:text-black ${currentPage === totalPages - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}

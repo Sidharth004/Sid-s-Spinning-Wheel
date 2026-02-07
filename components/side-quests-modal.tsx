@@ -1,18 +1,10 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { ImageIcon, ArrowRightIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react"
-
-interface SideQuest {
-  id: string
-  title: string
-  description: string
-  image: string | null
-  ctaText: string
-  ctaLink: string
-}
+import type { SideQuest } from "@/data/portfolio"
 
 interface SideQuestsModalProps {
   isOpen: boolean;
@@ -25,33 +17,7 @@ export function SideQuestsModal({
   isOpen,
   onClose,
   title = "Side Quests",
-  sideQuests = [
-    {
-      id: "1",
-      title: "BaldyCollector",
-      description: "Scan Bald Legends at Solana Baldpoint'25 (Breakpoint). Top the Bald Counter Leadboard. Win $bald airdrop from the Baldcoin community (NFA!!)  ",
-      image: '/baldycollector.png',
-      ctaText: "Try Here (no wallet connection required)",
-      ctaLink: "https://baldycollector.vercel.app",
-    },
-    {
-      id: "2",
-      title: "Scrap It",
-      description: "Uber for door to door domestic scrap collection. Find nearby scrap collectors - schedule pickup from doorstep. Dignifying lives of domestic scrap pedlars :) ",
-      image: '/scrapit.png',
-      ctaText: "Copyright Granted",
-      ctaLink: "https://drive.google.com/file/d/1pb4pXkibDCQ8lhc1VYRMq77WH1PjlWZ-/view",
-    },
-    {
-      id: "3",
-      title: "Get Me a Tshirt Daddy",
-      description: "Meme merch clothing brand for nerds.",
-      image: null,
-      ctaText: "Learn More",
-      ctaLink: "https://slight-imagine-556149.framer.app/",
-    },
-   
-  ],
+  sideQuests,
 }: SideQuestsModalProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -69,7 +35,7 @@ export function SideQuestsModal({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen) return;
-      
+
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         nextSideQuest();
       } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
@@ -92,7 +58,7 @@ export function SideQuestsModal({
         {/* Side quest container - Fixed height with single side quest view */}
         <div className="flex-1 p-4 overflow-hidden">
           {sideQuests.map((sideQuest, index) => (
-            <div 
+            <div
               key={sideQuest.id}
               className={`w-full transition-all duration-300 transform ${
                 index === activeIndex ? 'opacity-100 translate-y-0' : 'opacity-0 absolute pointer-events-none'
@@ -154,24 +120,24 @@ export function SideQuestsModal({
               />
             ))}
           </div>
-          
+
           {/* Navigation buttons */}
           <div className="flex items-center space-x-2">
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={prevSideQuest}
               disabled={activeIndex === 0}
               className={`text-gray-500 hover:text-black ${activeIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               <ChevronUpIcon className="h-4 w-4" />
             </Button>
-            
+
             <span className="text-sm text-gray-500">{activeIndex + 1} / {sideQuests.length}</span>
-            
-            <Button 
-              variant="ghost" 
-              size="sm" 
+
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={nextSideQuest}
               disabled={activeIndex === sideQuests.length - 1}
               className={`text-gray-500 hover:text-black ${activeIndex === sideQuests.length - 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -183,4 +149,4 @@ export function SideQuestsModal({
       </DialogContent>
     </Dialog>
   )
-} 
+}
