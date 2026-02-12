@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-export async function GET(request: Request) {
+export async function GET() {
   const GITHUB_API_URL = 'https://api.github.com/graphql';
   const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
   const GITHUB_USERNAME = 'Sidharth004';
@@ -16,10 +16,13 @@ export async function GET(request: Request) {
     );
   }
 
+  const currentYear = new Date().getFullYear();
+  const fromDate = `${currentYear}-01-01T00:00:00Z`;
+
   const query = `
     query {
       user(login: "${GITHUB_USERNAME}") {
-        contributionsCollection(from: "2025-01-01T00:00:00Z", to: "${new Date().toISOString()}") {
+        contributionsCollection(from: "${fromDate}", to: "${new Date().toISOString()}") {
           contributionCalendar {
             totalContributions
             weeks {
@@ -59,12 +62,19 @@ export async function GET(request: Request) {
       );
     }
 
+    if (!data.data?.user) {
+      return NextResponse.json(
+        { error: 'GitHub user not found' },
+        { status: 404 }
+      );
+    }
+
     const calendar = data.data.user.contributionsCollection.contributionCalendar;
 
     const transformedData = {
       totalContributions: calendar.totalContributions,
-      weeks: calendar.weeks.map((week: any) => ({
-        contributionDays: week.contributionDays.map((day: any) => ({
+      weeks: calendar.weeks.map((week: { contributionDays: { contributionCount: number; date: string }[] }) => ({
+        contributionDays: week.contributionDays.map((day: { contributionCount: number; date: string }) => ({
           count: day.contributionCount,
           date: day.date,
         })),

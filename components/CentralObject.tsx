@@ -74,7 +74,7 @@ export function CentralObject({ onClick }: CentralObjectProps) {
         <meshPhysicalMaterial
           color="#FFD700"
           transparent={true}
-          opacity={10}
+          opacity={0.1}
           emissive="white"
           emissiveIntensity={0.4}
           metalness={0}

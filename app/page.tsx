@@ -1,8 +1,8 @@
-// Updated page.tsx with mobile sandwich layout
 "use client"
 import dynamic from "next/dynamic"
 import { Suspense, useEffect, useState } from "react"
 import { Loader } from "@/components/Loader"
+import { CanvasErrorBoundary } from "@/components/ErrorBoundary"
 
 const SpinningCoilScene = dynamic(() => import("@/components/SpinningCoilScene"), { ssr: false })
 
@@ -22,9 +22,11 @@ export default function SyntheticV0PageForDeployment() {
     <main className="relative min-h-screen w-full bg-[#121210] overflow-hidden">
       {/* Canvas container */}
       <div className="absolute inset-0 w-full h-full">
-        <Suspense fallback={<Loader />}>
-          <SpinningCoilScene />
-        </Suspense>
+        <CanvasErrorBoundary>
+          <Suspense fallback={<Loader />}>
+            <SpinningCoilScene />
+          </Suspense>
+        </CanvasErrorBoundary>
       </div>
       
       {/* Top section - Title and subtitle for desktop, only title for mobile */}
