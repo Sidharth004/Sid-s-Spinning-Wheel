@@ -1,6 +1,6 @@
 // ============================================================
 // SINGLE SOURCE OF TRUTH FOR ALL PORTFOLIO CONTENT
-// Edit your content here — it flows to every part of the site.
+//it flows to every part of the site.
 // ============================================================
 
 // ---------- Shared Types ----------
@@ -175,6 +175,16 @@ export const growthJams: GrowthJam[] = [
 
 export const writing: WritingContent = {
   professional: [
+
+    {
+      year: 2026,
+      blogs: [
+        { title: "How Universal Fee Abstraction Works", url: "https://push.org/blog/how-universal-abstraction-works/", label: "Explainer" },
+        { title: "How Universal Transaction Works", url: "https://push.org/blog/how-universal-transaction-works/", label: "Explainer" },
+      ],
+    },
+
+  
     {
       year: 2025,
       blogs: [
@@ -185,6 +195,7 @@ export const writing: WritingContent = {
     {
       year: 2024,
       blogs: [
+        {title:"EIP 3664: Full Guide to Advanced NFT Properties",url:"https://www.cyfrin.io/blog/eip-3664-full-guide-to-nft-properties",label:"Tutorial"},
         { title: "Understanding Proof of Stake and Push Chain", url: "https://push.org/blog/understand-proof-of-stake-and-push-chain/", label: "Explainer" },
         { title: "Why Push Chain?", url: "https://push.org/blog/why-push-chain/", label: "Case Study & Research" },
         { title: "How Wallets Use Push to Become a Super App", url: "https://push.org/blog/how-wallets-use-push-to-become-a-super-app/", label: "Case Study & Research" },
@@ -207,6 +218,7 @@ export const writing: WritingContent = {
     },
   ],
   personal: [
+    {title: "Arbitrum needs to improve. 4 Reasons it's not able to overtake Base",url:"https://x.com/multichain_sid/status/2018315775493456358?s=20",label:"Hot Take"},
     { title: "Understanding Push Protocol: A Web3 Communication Tale from A to P", url: "https://medium.com/@kumthekarsid/understanding-push-protocol-a-web3-communication-tale-from-a-to-p-c0c29274211f", label: "Explainer" },
     { title: "The Google-Powered Blockchain Node Engine", url: "https://medium.com/@kumthekarsid/the-google-powered-blockchain-node-engine-8009b33a3ef1", label: "Explainer" },
   ],
@@ -216,27 +228,24 @@ export const experiences: Experience[] = [
   {
     company: "Push Protocol (Push Chain)",
     companyUrl: "https://push.org",
-    role: "Growth",
+    role: "Growth Ops Lead",
     duration: "Feb. 2024 – Present",
     location: "Dubai (Remote)",
     achievements: [
-      { text: "Directed 15+ marketing campaigns. One of which, grew protocol users by 160% (adding 53,000 new users in one month)." },
+      { text: "Directed 15+ marketing campaigns. One of which, grew protocol users by 160% (adding 53,000 new users in one month). Growing staking revenue by $76,000 in 7 days." },
       {
-        text: "Conceptualized and executed a series of reputation-based points programs, driving Push Chain's journey to Mainnet - onboarding 90,000+ Push Chain users, ~ 5 Million Testnet Txns and increasing notifications protocol revenue by $76,000 in 7 days.",
+        text: "Conceptualized and executed reputation-based points programs, that accelerated Push Chain’s Mainnet journey- onboarding 90,000+ Push Chain users, ~ 5 Million Testnet Txns.",
         links: [{ text: "points programs", url: "https://portal.push.org/" }],
       },
-      { text: "Onboarded 8+ Tier A partners like SpaceID, QuickSwap for joint points program activities." },
-      { text: "Designed an acquisition funnel for Push's NFT gated group chat feature, achieving 87% VIP user conversion within 3 hours of launch." },
+      { text: "Led co-marketing initiatives with 10+ Tier A partners (SpaceID, QuickSwap, and others), expanding ecosystem reach." },
+      { text: "Designed and optimized an acquisition funnel for Push’s NFT-gated Group Chat, achieving 87% conversion of VIP users within 3 hours of launch." },
       { text: "Authored 15+ research pieces, product case studies, and ecosystem blogs to establish Push as a leader in Omni chain tech and Web3 communications." },
-      { text: "Managed Galxe campaigns, KOL onboarding and investor communications to amplify Push's market presence." },
-      {
-        text: "Scribed the rebranding lore for Push Communications Protocol -> Push Chain",
-        links: [
-          { text: "Push Communications Protocol", url: "https://x.com/PushChain/status/1951645144832152007" },
-          { text: "Push Chain", url: "https://x.com/PushChain/status/1953464954767442241" },
-        ],
+      { text: "Managed inorganic activations, KOL onboarding and investor communications." },
+      { 
+        text: "Contributed to the ecosystem growth with developer onboarding initiatives and hackathons. One of which funneled 30+ projects to build full-time on Push Chain.",
+        links:[{text:"hackathons", url:"https://dorahacks.io/hackathon/pushchain-gud/winner"}],
       },
-    ],
+    ]   
   },
   {
     company: "Doge Capital",
@@ -286,6 +295,42 @@ export const experiences: Experience[] = [
       },
     ],
     tech: "Python, Google Cloud Suite, Google Gemini, Text-Bison, Cloud Functions, Langchain, SQL.",
+  },
+
+  {
+    company: "DotNames Domains",
+    companyUrl: "https://x.com/dotnamesdomains?lang=en",
+    role: "BD",
+    duration: "Nov.2023 – Jan 2024",
+    location: "Remote",
+    achievements: [
+      {
+        text: "Onboarded 26+ ecosystem projects from leading networks, including Taiko zkEVM, Sei , Mantle and Zetachain expanding DotNames’ multichain domain support",
+        
+      },
+      {
+        text: "Drove key growth outcomes, supporting  1 million domain mints and generating $100k+ in revenue during the 3-month period",
+        
+      },
+    ],
+  },
+
+  {
+    company: "Vitto.cc",
+    companyUrl: "https://x.com/dotnamesdomains?lang=en",
+    role: "Technical Content Lead",
+    duration: "Oct 2022 – Jan 2023",
+    location: "Italy, Remote",
+    achievements: [
+      {
+        text: "Authored a technical guide on Polkadot that generated 70K+ views in one week and earned a Quote Tweet from Gavin Wood, Polkadot Founder.",
+        links:[{text:"Quote Tweet",url:"https://x.com/gavofyork/status/1596435112047960065?s=20"}]
+      },
+      {
+        text: "Planned and executed the content calendar for newsletters and developer guides focused on Web3 infrastructure and tooling.",
+        
+      },
+    ],
   },
 ]
 
