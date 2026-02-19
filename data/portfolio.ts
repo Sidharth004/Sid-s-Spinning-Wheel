@@ -256,11 +256,11 @@ export const experiences: Experience[] = [
     achievements: [
       {
         text: " Led 10-member team across design, dev, and marketing to launch 'Wardrobe.live'- Solana's first NFT traits marketplace and NFT customization platform - from 0 to launch in 5 months.",
-        links: [{ text: "Wardrobe.live", url: "https://wardrobe.com" }],
+        // links: [{ text: "Wardrobe.live", url: "https://wardrobe.com" }],
       },
       {
         text: "Represented Wardrobe.live on the main stage at Solana Hacker House- Mumbai '23, securing multiple partnerships and a 45% growth in first-time transactions.",
-        links: [{ text: "Solana Hacker House Mumbai '23", url: "https://youtube.com" }],
+        // links: [{ text: "Solana Hacker House Mumbai '23", url: "https://youtube.com" }],
       },
       { text: "Designed product pitch deck, onboarded 7+ NFT collections(incl. Doge Capital, MMCC and Gruuvies) within the first month post-launch." },
     ],
