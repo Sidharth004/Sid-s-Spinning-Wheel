@@ -228,7 +228,7 @@ export const experiences: Experience[] = [
   {
     company: "Push Protocol (Push Chain)",
     companyUrl: "https://push.org",
-    role: "Growth Ops Lead",
+    role: "Growth Marketing Lead",
     duration: "Feb. 2024 – Present",
     location: "Dubai (Remote)",
     achievements: [
