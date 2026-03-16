@@ -94,7 +94,7 @@ export const aboutMe = {
   content: {
     mainContent: "",
     socialLinks: {
-      twitter: "https://twitter.com/multichain_sid",
+      twitter: "https://x.com/sidisgame",
       telegram: "https://t.me/multichain_sid",
       linkedin: "https://www.linkedin.com/in/sidharth-kumthekar04r-70772b1a7/",
     },
@@ -336,7 +336,7 @@ export const experiences: Experience[] = [
 
 export const contact: Contact = {
   Email: { value: "kumthekarsid@gmail.com", url: "mailto:kumthekarsid@gmail.com" },
-  X: { value: "@multichain_sid", url: "https://twitter.com/multichain_sid" },
+  X: { value: "@sidisgame", url: "https://x.com/sidisgame" },
   Telegram: { value: "@multichain_sid", url: "https://t.me/multichain_sid" },
   LinkedIn: { value: "Sidharth Kumthekar", url: "https://www.linkedin.com/in/sidharth-kumthekar04r-70772b1a7/" },
 }
