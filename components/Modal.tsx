@@ -1,4 +1,5 @@
 // Modal.tsx
+import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { TimelineModal } from "./timeline-modal";
 import GitHubContributions from "./GitHubContributions";
@@ -59,6 +60,90 @@ const LabelBadge = ({ type }: { type: string }) => {
     </span>
   );
 };
+function WritingModal({ isOpen, onClose, title, writingContent }: { isOpen: boolean; onClose: () => void; title: string; writingContent: WritingContent }) {
+  const [activeTab, setActiveTab] = useState<'work' | 'personal'>('work');
+  return (
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-[800px] bg-white/95 backdrop-blur-sm max-h-[80vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-3xl font-bold text-gray-900 mb-4">{title}</DialogTitle>
+        </DialogHeader>
+
+        {/* Tabs */}
+        <div className="flex border-b border-gray-200 mb-6">
+          <button
+            onClick={() => setActiveTab('work')}
+            className={`px-6 py-2 text-sm font-semibold transition-colors ${
+              activeTab === 'work'
+                ? 'border-b-2 border-blue-600 text-blue-600'
+                : 'text-gray-500 hover:text-gray-800'
+            }`}
+          >
+            Work
+          </button>
+          <button
+            onClick={() => setActiveTab('personal')}
+            className={`px-6 py-2 text-sm font-semibold transition-colors ${
+              activeTab === 'personal'
+                ? 'border-b-2 border-blue-600 text-blue-600'
+                : 'text-gray-500 hover:text-gray-800'
+            }`}
+          >
+            Personal
+          </button>
+        </div>
+
+        {activeTab === 'work' && (
+          <div className="space-y-8">
+            {writingContent.professional.map((yearGroup) => (
+              <div key={yearGroup.year} className="mb-8">
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">{yearGroup.year}</h3>
+                <div className="space-y-4">
+                  {yearGroup.blogs.map((blog, index) => (
+                    <div key={index} className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                      <div className="flex justify-between items-start gap-4">
+                        <a
+                          href={blog.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-lg font-medium text-blue-600 hover:text-blue-800"
+                        >
+                          {blog.title}
+                        </a>
+                        <LabelBadge type={blog.label} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {activeTab === 'personal' && (
+          <div className="space-y-4">
+            {writingContent.personal.map((blog, index) => (
+              <div key={index} className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="flex justify-between items-start gap-4">
+                  <a
+                    href={blog.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-lg font-medium text-blue-600 hover:text-blue-800"
+                  >
+                    {blog.title}
+                  </a>
+                  <LabelBadge type={blog.label} />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 export function Modal({ isOpen, onClose, title, content, type = 'default' }: ModalProps) {
 
 
@@ -200,64 +285,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
   }
   if (type === 'writing') {
     const writingContent = content as WritingContent;
-    return (
-      <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="sm:max-w-[800px] bg-white/95 backdrop-blur-sm max-h-[80vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-3xl font-bold text-gray-900 mb-6">{title}</DialogTitle>
-          </DialogHeader>
-
-          <div className="space-y-8">
-            <section>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Professional</h2>
-              {writingContent.professional.map((yearGroup) => (
-                <div key={yearGroup.year} className="mb-8">
-                  <h3 className="text-xl font-semibold text-gray-700 mb-4">{yearGroup.year}</h3>
-                  <div className="space-y-4">
-                    {yearGroup.blogs.map((blog, index) => (
-                      <div key={index} className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                        <div className="flex justify-between items-start gap-4">
-                          <a
-                            href={blog.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-lg font-medium text-blue-600 hover:text-blue-800"
-                          >
-                            {blog.title}
-                          </a>
-                          <LabelBadge type={blog.label} />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 text">Personal</h2>
-              <div className="space-y-4">
-                {writingContent.personal.map((blog, index) => (
-                  <div key={index} className="p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
-                    <div className="flex justify-between items-start gap-4">
-                      <a
-                        href={blog.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-lg font-medium text-blue-600 hover:text-blue-800"
-                      >
-                        {blog.title}
-                      </a>
-                      <LabelBadge type={blog.label} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </div>
-        </DialogContent>
-      </Dialog>
-    );
+    return <WritingModal isOpen={isOpen} onClose={onClose} title={title} writingContent={writingContent} />;
   }
   if (type === 'experience') {
     const experiences = content as Experience[];

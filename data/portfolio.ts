@@ -218,6 +218,7 @@ export const writing: WritingContent = {
     },
   ],
   personal: [
+    {title:"What Made Me Buy a $140 Shoe I Never Planned to ( Lesson for Marketers and Salespeople )",url:"https://x.com/sidisgame/status/2034923644829540465?s=20",label:"Hot Take"},
     {title: "Arbitrum needs to improve. 4 Reasons it's not able to overtake Base",url:"https://x.com/multichain_sid/status/2018315775493456358?s=20",label:"Hot Take"},
     { title: "Understanding Push Protocol: A Web3 Communication Tale from A to P", url: "https://medium.com/@kumthekarsid/understanding-push-protocol-a-web3-communication-tale-from-a-to-p-c0c29274211f", label: "Explainer" },
     { title: "The Google-Powered Blockchain Node Engine", url: "https://medium.com/@kumthekarsid/the-google-powered-blockchain-node-engine-8009b33a3ef1", label: "Explainer" },
