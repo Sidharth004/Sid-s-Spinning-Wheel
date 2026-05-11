@@ -179,6 +179,7 @@ export const writing: WritingContent = {
     {
       year: 2026,
       blogs: [
+        { title: "WTF Happened to Chain Abstraction?", url: "https://x.com/PushChain/status/2049140764924616775", label: "Case Study & Research" },
         { title: "How Universal Fee Abstraction Works", url: "https://push.org/blog/how-universal-abstraction-works/", label: "Explainer" },
         { title: "How Universal Transaction Works", url: "https://push.org/blog/how-universal-transaction-works/", label: "Explainer" },
       ],
