@@ -1,10 +1,9 @@
-import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css'
+import { seoMeta, jsonLd } from '@/data/seo'
 
-export const metadata: Metadata = {
-  title: "Sid's Cryptoverse",
-  description: 'Portfolio and Digital Universe of Sidharth',
+export const metadata = {
+  ...seoMeta.home,
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },
@@ -25,6 +24,10 @@ export default function RootLayout({
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
         </head>
       
       <body>

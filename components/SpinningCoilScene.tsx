@@ -7,10 +7,31 @@ import { Modal } from "@/components/Modal"
 import { StarField } from './StarField'
 import { dotInfo, dotKeys, type DotInfoKey } from "@/data/portfolio"
 
+const dotKeyToPath: Partial<Record<DotInfoKey, string>> = {
+  writing: '/writing',
+  experience: '/experience',
+  sideQuests: '/side-quests',
+  contact: '/contact',
+  growthJams: '/growth-jams',
+}
+
+const pathToDotKey: Record<string, DotInfoKey> = Object.fromEntries(
+  Object.entries(dotKeyToPath).map(([k, v]) => [v, k as DotInfoKey])
+)
+
 export default function SpinningCoilScene() {
   const [selectedDot, setSelectedDot] = useState<DotInfoKey | null>(null);
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === '/about') {
+      setShowAboutMe(true);
+    } else if (pathToDotKey[path]) {
+      setSelectedDot(pathToDotKey[path]);
+    }
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -34,7 +55,25 @@ export default function SpinningCoilScene() {
   }, []);
 
   const handleDotClick = (index: number) => {
-    setSelectedDot(dotKeys[index]);
+    const key = dotKeys[index];
+    setSelectedDot(key);
+    const path = dotKeyToPath[key];
+    if (path) window.history.pushState(null, '', path);
+  };
+
+  const handleDotClose = () => {
+    setSelectedDot(null);
+    window.history.pushState(null, '', '/');
+  };
+
+  const handleAboutOpen = () => {
+    setShowAboutMe(true);
+    window.history.pushState(null, '', '/about');
+  };
+
+  const handleAboutClose = () => {
+    setShowAboutMe(false);
+    window.history.pushState(null, '', '/');
   };
 
   const cameraPosition: [number, number, number] = isMobile ? [0, 10, 15] : [0, 8, 12];
@@ -86,14 +125,14 @@ export default function SpinningCoilScene() {
         <group rotation={[-Math.PI / 2.5, -0.5, 0]}>
           <StarField />
           <SpinningCoil onDotClick={handleDotClick} />
-          <CentralObject onClick={() => setShowAboutMe(true)} />
+          <CentralObject onClick={handleAboutOpen} />
         </group>
         <OrbitControls {...orbitControlProps} />
       </Canvas>
 
       <Modal
         isOpen={selectedDot !== null}
-        onClose={() => setSelectedDot(null)}
+        onClose={handleDotClose}
         title={selectedDot ? dotInfo[selectedDot].title : ""}
         content={selectedDot ? dotInfo[selectedDot].content : ""}
         type={selectedDot ? dotInfo[selectedDot].type : "default"}
@@ -102,7 +141,7 @@ export default function SpinningCoilScene() {
       {showAboutMe && (
         <Modal
           isOpen={showAboutMe}
-          onClose={() => setShowAboutMe(false)}
+          onClose={handleAboutClose}
           title={dotInfo.aboutMe.title}
           type="about"
           content={dotInfo.aboutMe.content}
