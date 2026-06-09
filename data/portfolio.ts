@@ -136,6 +136,14 @@ export const sideQuests: SideQuest[] = [
     ctaText: "Learn More",
     ctaLink: "https://slight-imagine-556149.framer.app/",
   },
+  {
+    id: "4",
+    title: "easyBD",
+    description: "Fully automated lead management bot for crypto BDs. Manages all inbound queries, scores and filters them, assigns leads to your BD team, coordinates and tracks conversions. Even BDs deserve a clean TG inbox.",
+    image: "/easybd.png",
+    ctaText: "Get Early Access",
+    ctaLink: "https://easybd.vercel.app/",
+  },
 ]
 
 export const growthJams: GrowthJam[] = [
@@ -228,13 +236,13 @@ export const writing: WritingContent = {
 
 export const experiences: Experience[] = [
   {
-    company: "Push Protocol (Push Chain)",
+    company: "Push Chain (prev. Push Protocol)",
     companyUrl: "https://push.org",
     role: "Growth Marketing Lead",
     duration: "Feb. 2024 – Present",
     location: "Dubai (Remote)",
     achievements: [
-      { text: "Directed 15+ marketing campaigns. One of which, grew protocol users by 160% (adding 33,000 new users in one month). Growing staking revenue by $76,000 in 7 days." },
+      { text: "Directed 35+ marketing campaigns. One of which, grew protocol users by 160% (adding 33,000 new users in one month). Growing staking revenue by $76,000 in 7 days." },
       {
         text: "Conceptualized and executed reputation-based points programs, that accelerated Push Chain’s Mainnet journey- onboarding 50,000+ Push Chain users, 12 Million Testnet Txns.",
         links: [{ text: "points programs", url: "https://portal.push.org/" }],
@@ -251,7 +259,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Doge Capital",
-    companyUrl: "https://thedogecapital.com/",
+    companyUrl: "https://x.com/merklehq",
     role: "Product Manager",
     duration: "May. 2023 – Nov. 2023",
     location: "Dubai (Remote)",
@@ -269,7 +277,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Alchemy",
-    companyUrl: "https://www.alchemy.com",
+    companyUrl: "https://alchemy.com",
     role: "Analyst",
     duration: "Nov. 2022 – Oct. 2024",
     location: "San Francisco (Remote)",
@@ -286,7 +294,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Reblue Ventures",
-    companyUrl: "https://www.reblueventures.com",
+    companyUrl: "https://www.reblueventures.com/",
     role: "Gen.AI Backend Developer Intern",
     duration: "Nov.2023 – Feb 2024",
     location: "India, Onsite",
@@ -301,7 +309,7 @@ export const experiences: Experience[] = [
 
   {
     company: "DotNames Domains",
-    companyUrl: "https://x.com/dotnamesdomains?lang=en",
+    companyUrl: "https://x.com/dotnamesdomains",
     role: "BD",
     duration: "Nov.2023 – Jan 2024",
     location: "Remote",

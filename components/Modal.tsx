@@ -301,7 +301,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
                 <div className="flex justify-between items-start mb-2">
                   <h3 className="text-xl font-bold text-gray-900">
                     {exp.companyUrl ? (
-                      <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">
+                      <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="text-gray-900 hover:underline">
                         {exp.company}
                       </a>
                     ) : (
