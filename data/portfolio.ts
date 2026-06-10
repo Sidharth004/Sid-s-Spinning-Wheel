@@ -327,7 +327,7 @@ export const experiences: Experience[] = [
 
   {
     company: "Vitto.cc",
-    companyUrl: "https://x.com/dotnamesdomains?lang=en",
+    companyUrl: "https://x.com/VittoStack",
     role: "Technical Content Lead",
     duration: "Oct 2022 – Jan 2023",
     location: "Italy, Remote",
