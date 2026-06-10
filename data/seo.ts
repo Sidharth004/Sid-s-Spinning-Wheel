@@ -86,6 +86,6 @@ export const jsonLd = {
   "sameAs": [
     "https://x.com/sidisgame",
     "https://www.linkedin.com/in/sidharth-kumthekar04r-70772b1a7/",
-    "https://t.me/multichain_sid",
+    "https://t.me/sidisgame",
   ],
 }

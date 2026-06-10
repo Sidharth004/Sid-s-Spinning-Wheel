@@ -173,7 +173,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
           <div className="space-y-4 text-gray-700">
             <p className="leading-relaxed">
               A 23 year old CS Undergrad who loves to build products and sky rocket brands!
-              Got introduced to crypto during covid - got my first industry breakthrough in my sophomore year (2k22) - and now there's nooooo turning back.
+              Got introduced to crypto during covid, got my first industry breakthrough in my sophomore year (2k22), and now there's nooooo turning back.
             </p>
 
             <p className="leading-relaxed">
@@ -186,7 +186,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             </p>
 
             <p className="leading-relaxed">
-              Though crypto takes up 7/4th of my day - whether it's work, research, or trenching. When it's time to touch grass, you'll find me:
+              Though crypto takes up 7/4th of my day, whether it's work, research, or trenching. When it's time to touch grass, you'll find me:
             </p>
 
             <div className="pl-6 space-y-2">
@@ -197,7 +197,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
             </div>
 
             <p className="leading-relaxed">
-              My near-term goal? To contribute my best towards cross chain infra, consumer crypto apps and travel the world living the true digital nomad life.
+              My near-term goal? To contribute my best towards building the Internet Capital Markets, try not to tear my ACL again, and become best friends with Gary Vee.
             </p>
 
              <div className="flex justify-center mt-6">

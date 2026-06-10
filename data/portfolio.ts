@@ -95,7 +95,7 @@ export const aboutMe = {
     mainContent: "",
     socialLinks: {
       twitter: "https://x.com/sidisgame",
-      telegram: "https://t.me/multichain_sid",
+      telegram: "https://t.me/sidisgame",
       linkedin: "https://www.linkedin.com/in/sidharth-kumthekar04r-70772b1a7/",
     },
   } satisfies AboutContent,
@@ -222,7 +222,7 @@ export const writing: WritingContent = {
     {
       year: 2022,
       blogs: [
-        { title: "Polkadot vs Ethereum: The Full Comparison", url: "https://vitto.cc/polkadot-vs-ethereum-the-full-comparison/", label: "Explainer" },
+        { title: "Polkadot vs Ethereum: The Full Comparison", url: "https://x.com/VittoStack", label: "Explainer" },
       ],
     },
   ],
@@ -237,7 +237,7 @@ export const writing: WritingContent = {
 export const experiences: Experience[] = [
   {
     company: "Push Chain (prev. Push Protocol)",
-    companyUrl: "https://push.org",
+    companyUrl: "https://x.com/PushChain",
     role: "Growth Marketing Lead",
     duration: "Feb. 2024 – Present",
     location: "Dubai (Remote)",
@@ -258,7 +258,7 @@ export const experiences: Experience[] = [
     ]   
   },
   {
-    company: "Doge Capital",
+    company: "Merkle Labs",
     companyUrl: "https://x.com/merklehq",
     role: "Product Manager",
     duration: "May. 2023 – Nov. 2023",
@@ -277,7 +277,7 @@ export const experiences: Experience[] = [
   },
   {
     company: "Alchemy",
-    companyUrl: "https://alchemy.com",
+    companyUrl: "https://x.com/Alchemy",
     role: "Analyst",
     duration: "Nov. 2022 – Oct. 2024",
     location: "San Francisco (Remote)",
@@ -347,7 +347,7 @@ export const experiences: Experience[] = [
 export const contact: Contact = {
   Email: { value: "kumthekarsid@gmail.com", url: "mailto:kumthekarsid@gmail.com" },
   X: { value: "@sidisgame", url: "https://x.com/sidisgame" },
-  Telegram: { value: "@multichain_sid", url: "https://t.me/multichain_sid" },
+  Telegram: { value: "@sidisgame", url: "https://t.me/sidisgame" },
   LinkedIn: { value: "Sidharth Kumthekar", url: "https://www.linkedin.com/in/sidharth-kumthekar04r-70772b1a7/" },
 }
 
