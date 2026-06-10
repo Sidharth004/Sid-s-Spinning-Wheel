@@ -144,6 +144,14 @@ export const sideQuests: SideQuest[] = [
     ctaText: "Get Early Access",
     ctaLink: "https://easybd.vercel.app/",
   },
+  {
+    id: "5",
+    title: "Clipping for Raiku",
+    description: "Clipping podcast and community calls for Raiku.",
+    image: "/clippingforraiku.png",
+    ctaText: "Visit Raiku",
+    ctaLink: "https://raiku.com",
+  },
 ]
 
 export const growthJams: GrowthJam[] = [
