@@ -18,6 +18,9 @@ export function SideQuestsModal({
   title = "Side Quests",
   sideQuests,
 }: SideQuestsModalProps) {
+  // Newest first
+  const orderedQuests = [...sideQuests].reverse()
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-[95vw] max-h-[90vh] w-[1000px] p-0 overflow-hidden bg-white flex flex-col">
@@ -29,7 +32,7 @@ export function SideQuestsModal({
 
         <div className="flex-1 p-6 overflow-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {sideQuests.map((quest) => (
+            {orderedQuests.map((quest) => (
               <div
                 key={quest.id}
                 className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"

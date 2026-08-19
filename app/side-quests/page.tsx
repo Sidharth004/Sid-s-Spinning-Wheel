@@ -6,6 +6,9 @@ import { seoMeta } from '@/data/seo'
 export const metadata = seoMeta.sideQuests
 
 export default function SideQuestsPage() {
+  // Newest first
+  const orderedQuests = [...sideQuests].reverse()
+
   return (
     <main className="min-h-screen bg-[#121210] text-white px-6 py-12">
       <div className="max-w-4xl mx-auto">
@@ -17,7 +20,7 @@ export default function SideQuestsPage() {
         <p className="text-gray-400 mb-12">Experiments, builds, and random obsessions.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {sideQuests.map((quest) => (
+          {orderedQuests.map((quest) => (
             <div
               key={quest.id}
               className="border border-gray-800 rounded-xl overflow-hidden hover:border-gray-600 transition-colors flex flex-col"
