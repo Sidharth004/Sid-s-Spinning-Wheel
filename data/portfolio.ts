@@ -296,7 +296,7 @@ export const experiences: Experience[] = [
     duration: "Feb. 2024 – Present",
     location: "Dubai (Remote)",
     achievements: [
-      { text: "Directed 35+ marketing campaigns. One of which, grew protocol users by 160% (adding 33,000 new users in one month). Growing staking revenue by $76,000 in 7 days." },
+      { text: "Directed 35+ marketing campaigns. One of which, grew protocol users by 160% (adding 50,000+ new users in one month). Growing staking revenue by $76,000 in 7 days." },
       {
         text: "Conceptualized and executed reputation-based points programs, that accelerated Push Chain’s Mainnet journey- onboarding 50,000+ Push Chain users, 12 Million Testnet Txns.",
         links: [{ text: "points programs", url: "https://portal.push.org/" }],
