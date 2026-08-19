@@ -155,7 +155,7 @@ export const sideQuests: SideQuest[] = [
   {
     id:"2",
     title:"Claude for xyz",
-    description:"A repository of all startups who apparantly are building 'claude for marketing','claude for outreach', and more..",
+    description:"A repository of all startups who apparently are building 'claude for marketing','claude for outreach', and more..",
     image:"/claudefor.png",
     ctaText:"visit",
     ctaLink:"https://claudefor.xyz",
@@ -198,7 +198,7 @@ export const growthJams: GrowthJam[] = [
   {
     id:"4",
     title:"10 Growth Tips to Hyper Scale FluxRPC",
-    description:"Benchmarking tool lead magenets, Ecosystem expansion, Cotent Marketing",
+    description:"Benchmarking tool lead magnets, Ecosystem expansion, Content Marketing",
     image:"/fluxrpc.png",
     ctaText:"max 4 min read",
     ctaLink:"https://docs.google.com/document/d/1uH6FlpPFnskVWjkeUFfFN573pz1BvWeKsj1aBbow5wk/edit?usp=sharing",
@@ -236,9 +236,9 @@ export const writing: WritingContent = {
       year: 2026,
       blogs: [
         { title: "WTF Happened to Chain Abstraction?", url: "https://x.com/PushChain/status/2049140764924616775", label: "Case Study & Research" },
-        {title:"How do AI Agents Transact Onchian?",url:"https://x.com/PushChain/status/2084296038744219690?s=20",label:"Explainer"},
+        {title:"How do AI Agents Transact Onchain?",url:"https://x.com/PushChain/status/2084296038744219690?s=20",label:"Explainer"},
         {title:"Understanding Crypto AI Agent Stack(Layer by Layer)", url:"https://x.com/PushChain/status/2081756011715875292?s=20",label:"Explainer"},
-        {title:"Same Stock, Two Prices - And almost nobody can profit form it",url:"https://x.com/PushChain/status/2074909887050686837?s=20",label:"Case Study & Research"},
+        {title:"Same Stock, Two Prices - And almost nobody can profit from it",url:"https://x.com/PushChain/status/2074909887050686837?s=20",label:"Case Study & Research"},
         {title:"Highest Revenue Generating Crypto AI Agent Protocols of 2026 ",url:"https://x.com/PushChain/status/2086831112811409449?s=20",label:"Case Study & Research"},
         {title:"AI Agent Identities in Crypto: Everything You Need To Know",url:"https://x.com/PushChain/status/2089372640834417130?s=20",label:"Explainer"},
         { title: "How Universal Fee Abstraction Works", url: "https://push.org/blog/how-universal-abstraction-works/", label: "Explainer" },
