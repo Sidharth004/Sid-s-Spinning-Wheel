@@ -113,7 +113,7 @@ export const milestones: Milestone[] = [
 
 export const sideQuests: SideQuest[] = [
   {
-    id: "1",
+    id: "5",
     title: "Scrap It",
     description: "Uber for door to door domestic scrap collection. Find nearby scrap collectors - schedule pickup from doorstep. Dignifying lives of domestic scrap pedlars :) ",
     image: "/scrapit.png",
@@ -121,7 +121,7 @@ export const sideQuests: SideQuest[] = [
     ctaLink: "https://drive.google.com/file/d/1pb4pXkibDCQ8lhc1VYRMq77WH1PjlWZ-/view",
   },
   {
-    id: "2",
+    id: "7",
     title: "BaldyCollector",
     description: "Scan Bald Legends at Solana Baldpoint'25 (Breakpoint). Top the Bald Counter Leadboard. Win $bald airdrop from the Baldcoin community (NFA!!)  ",
     image: "/baldycollector.jpeg",
@@ -129,7 +129,7 @@ export const sideQuests: SideQuest[] = [
     ctaLink: "https://baldycollector.vercel.app",
   },
   {
-    id: "3",
+    id: "6",
     title: "Get Me a Tshirt Daddy",
     description: "Meme merch clothing brand for nerds.",
     image: "/tee.png",
@@ -145,12 +145,28 @@ export const sideQuests: SideQuest[] = [
     ctaLink: "https://easybd.vercel.app/",
   },
   {
-    id: "5",
+    id: "3",
     title: "Clipping for Raiku",
-    description: "Clipping podcast and community calls for Raiku.",
+    description: "Clipping podcast and community calls for Raiku. 100k+views",
     image: "/clippingforraiku.png",
     ctaText: "Visit Raiku",
     ctaLink: "https://raiku.com",
+  },
+  {
+    id:"2",
+    title:"Claude for xyz",
+    description:"A repository of all startups who apparantly are building 'claude for marketing','claude for outreach', and more..",
+    image:"/claudefor.png",
+    ctaText:"visit",
+    ctaLink:"https://claudefor.xyz",
+  },
+  {
+    id:"1",
+    title:"Automated Clipping Tool",
+    description:"Automatically finds 10-12 clippable segments, adds captions, removes noise and exports in one click",
+    image:"/clip.jpeg",
+    ctaText:"DM for access",
+    ctaLink:"https://x.com/sidisgame/status/2088252357222252951?s=20",
   },
 ]
 
@@ -164,7 +180,15 @@ export const growthJams: GrowthJam[] = [
     ctaLink: "https://www.notion.so/Growth-Marketing-Tips-to-Super-Scale-Dynamic-1ce3f0bf4809806da9fcf4b35aa443b4?pvs=4",
   },
   {
-    id: "2",
+    id:"2",
+    title:"5 Growth & Marketing Tips for Altitude",
+    description:"lead magnets, seo improvements, Branding suggestions, branded tissues and toilet papers",
+    image:"/altitude.png",
+    ctaText:"3 min read",
+    ctaLink:"https://docs.google.com/document/d/1iTA4SI1J_jUVL79_5EYMbAz0pHG00YaIEXU_lbnTqz8/edit?usp=sharing",
+  },
+  {
+    id: "3",
     title: "Content & Growth Hacking Tips for Crossmint",
     description: "Crossmint is a dev tool provider for crypto apps - known best for its user onboarding tools, payment rails and AI agent SDKs",
     image: "/crossmint_growthtips.png",
@@ -172,7 +196,23 @@ export const growthJams: GrowthJam[] = [
     ctaLink: "https://docs.google.com/document/d/1WfQIx86dZHiQcpsvrI7XG_RSPAnAJIpwx98o0yuKYjA/edit?usp=sharing",
   },
   {
-    id: "3",
+    id:"4",
+    title:"10 Growth Tips to Hyper Scale FluxRPC",
+    description:"Benchmarking tool lead magenets, Ecosystem expansion, Cotent Marketing",
+    image:"/fluxrpc.png",
+    ctaText:"max 4 min read",
+    ctaLink:"https://docs.google.com/document/d/1uH6FlpPFnskVWjkeUFfFN573pz1BvWeKsj1aBbow5wk/edit?usp=sharing",
+  },
+  {
+    id:"5",
+    title:"5 Branding Suggestions for Jupiter",
+    description:"Brand growth ideas, jupipurr yearbook for breakpoint'26, institutional friendly content",
+    image:"/jupiter.png",
+    ctaText:"quick look",
+    ctaLink:"https://docs.google.com/document/d/1aTig4K_tyH8waW4n_J51NlLX-uhdWUe6B_Ny7g0qePo/edit?usp=sharing",
+  },
+  {
+    id: "6",
     title: "Marketing Ideas for super scaling Phantom's adoption",
     description: "Focussed on User Icentives & Community Love",
     image: "/phantom_growthtips.png",
@@ -180,7 +220,7 @@ export const growthJams: GrowthJam[] = [
     ctaLink: "https://docs.google.com/document/d/1jRo-ISJNKPz_2FEaOLZ35OiTt4KZ4HW-mWuHyAqhdm8/edit?usp=sharing",
   },
   {
-    id: "4",
+    id: "7",
     title: "3 Easy tips for turbocharging the Eclipse Ecosystem",
     description: "marketing-focused tips for shaping, sustaining, and expanding Eclipse's ecosystem around the globe!",
     image: "/eclipse_growthtips.png",
@@ -196,6 +236,11 @@ export const writing: WritingContent = {
       year: 2026,
       blogs: [
         { title: "WTF Happened to Chain Abstraction?", url: "https://x.com/PushChain/status/2049140764924616775", label: "Case Study & Research" },
+        {title:"How do AI Agents Transact Onchian?",url:"https://x.com/PushChain/status/2084296038744219690?s=20",label:"Explainer"},
+        {title:"Understanding Crypto AI Agent Stack(Layer by Layer)", url:"https://x.com/PushChain/status/2081756011715875292?s=20",label:"Explainer"},
+        {title:"Same Stock, Two Prices - And almost nobody can profit form it",url:"https://x.com/PushChain/status/2074909887050686837?s=20",label:"Case Study & Research"},
+        {title:"Highest Revenue Generating Crypto AI Agent Protocols of 2026 ",url:"https://x.com/PushChain/status/2086831112811409449?s=20",label:"Case Study & Research"},
+        {title:"AI Agent Identities in Crypto: Everything You Need To Know",url:"https://x.com/PushChain/status/2089372640834417130?s=20",label:"Explainer"},
         { title: "How Universal Fee Abstraction Works", url: "https://push.org/blog/how-universal-abstraction-works/", label: "Explainer" },
         { title: "How Universal Transaction Works", url: "https://push.org/blog/how-universal-transaction-works/", label: "Explainer" },
       ],
@@ -235,6 +280,7 @@ export const writing: WritingContent = {
     },
   ],
   personal: [
+    {title:"4 Key Product Marketing Frameworks Taught at Harvard",url:"https://x.com/sidisgame/status/2087212126121382085?s=20",label:"Explainer"},
     {title:"What Made Me Buy a $140 Shoe I Never Planned to ( Lesson for Marketers and Salespeople )",url:"https://x.com/sidisgame/status/2034923644829540465?s=20",label:"Hot Take"},
     {title: "Arbitrum needs to improve. 4 Reasons it's not able to overtake Base",url:"https://x.com/multichain_sid/status/2018315775493456358?s=20",label:"Hot Take"},
     { title: "Understanding Push Protocol: A Web3 Communication Tale from A to P", url: "https://medium.com/@kumthekarsid/understanding-push-protocol-a-web3-communication-tale-from-a-to-p-c0c29274211f", label: "Explainer" },
@@ -266,8 +312,8 @@ export const experiences: Experience[] = [
     ]   
   },
   {
-    company: "Merkle Labs",
-    companyUrl: "https://x.com/merklehq",
+    company: "Doge Capital",
+    companyUrl: "https://x.com/dogecapitalhq",
     role: "Product Manager",
     duration: "May. 2023 – Nov. 2023",
     location: "Dubai (Remote)",
