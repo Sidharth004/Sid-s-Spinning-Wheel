@@ -123,7 +123,7 @@ export const sideQuests: SideQuest[] = [
   {
     id: "7",
     title: "BaldyCollector",
-    description: "Scan Bald Legends at Solana Baldpoint'25 (Breakpoint). Top the Bald Counter Leadboard. Win $bald airdrop from the Baldcoin community (NFA!!)  ",
+    description: "Scan Bald Legends at Solana Baldpoint'25 (Breakpoint). Top the Bald Counter Leaderboard. Win $bald airdrop from the Baldcoin community (NFA!!)  ",
     image: "/baldycollector.jpeg",
     ctaText: "Try Here (no wallet connection required)",
     ctaLink: "https://baldycollector.vercel.app",
@@ -147,7 +147,7 @@ export const sideQuests: SideQuest[] = [
   {
     id: "3",
     title: "Clipping for Raiku",
-    description: "Clipping podcast and community calls for Raiku. 100k+views",
+    description: "Clipping podcast and community calls for Raiku. 100k+ views",
     image: "/clippingforraiku.png",
     ctaText: "Visit Raiku",
     ctaLink: "https://raiku.com",
@@ -174,9 +174,9 @@ export const growthJams: GrowthJam[] = [
   {
     id: "1",
     title: "Growth Tips for Superscaling Dynamic",
-    description: "Focussed on strengthening 3 key pillars: 1) Narrative & Brand Positioning || 2) Distribution & Activation || 3) Education & Thought Leadership ",
+    description: "Focused on strengthening 3 key pillars: 1) Narrative & Brand Positioning || 2) Distribution & Activation || 3) Education & Thought Leadership ",
     image: "/dynamic_growthtips.jpg",
-    ctaText: "Complete Revealation",
+    ctaText: "Complete Revelation",
     ctaLink: "https://www.notion.so/Growth-Marketing-Tips-to-Super-Scale-Dynamic-1ce3f0bf4809806da9fcf4b35aa443b4?pvs=4",
   },
   {
@@ -214,7 +214,7 @@ export const growthJams: GrowthJam[] = [
   {
     id: "6",
     title: "Marketing Ideas for super scaling Phantom's adoption",
-    description: "Focussed on User Icentives & Community Love",
+    description: "Focused on User Incentives & Community Love",
     image: "/phantom_growthtips.png",
     ctaText: "Glance in detail",
     ctaLink: "https://docs.google.com/document/d/1jRo-ISJNKPz_2FEaOLZ35OiTt4KZ4HW-mWuHyAqhdm8/edit?usp=sharing",
@@ -258,7 +258,7 @@ export const writing: WritingContent = {
       year: 2024,
       blogs: [
         {title:"EIP 3664: Full Guide to Advanced NFT Properties",url:"https://www.cyfrin.io/blog/eip-3664-full-guide-to-nft-properties",label:"Tutorial"},
-        { title: "Understanding Proof of Stake and Push Chain", url: "https://push.org/blog/understand-proof-of-stake-and-push-chain/", label: "Explainer" },
+        { title: "Understanding Proof of Stake and Push Chain", url: "https://push.org/blog/understand-proof-of-stake/", label: "Explainer" },
         { title: "Why Push Chain?", url: "https://push.org/blog/why-push-chain/", label: "Case Study & Research" },
         { title: "How Wallets Use Push to Become a Super App", url: "https://push.org/blog/how-wallets-use-push-to-become-a-super-app/", label: "Case Study & Research" },
         { title: "Interoperable Communications: Moving Across an Open Web with Push", url: "https://push.org/blog/interoperable-communications-moving-across-an-open-web-with-push/", label: "Case Study & Research" },
@@ -354,7 +354,7 @@ export const experiences: Experience[] = [
     location: "India, Onsite",
     achievements: [
       {
-        text: "Designed and inplemented a serverless Retrieval-Augmented Generation (RAG) workflow to process 400+ corporate sustainability reports, enabling complex graph + text extraction, reasoning, achieving 86% accuracy.",
+        text: "Designed and implemented a serverless Retrieval-Augmented Generation (RAG) workflow to process 400+ corporate sustainability reports, enabling complex graph + text extraction, reasoning, achieving 86% accuracy.",
         links: [{ text: "serverless Retrieval-Augmented Generation (RAG) workflow", url: "https://www.reblueventures.com/SustainSwift" }],
       },
     ],
