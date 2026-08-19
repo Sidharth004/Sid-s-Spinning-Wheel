@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { milestones } from '@/data/portfolio'
-import { TimelineModal } from '@/components/timeline-modal'
+// import { milestones } from '@/data/portfolio'
+// import { TimelineModal } from '@/components/timeline-modal'
 import { seoMeta } from '@/data/seo'
 
 export const metadata = seoMeta.about
@@ -27,35 +27,31 @@ export default function AboutPage() {
 
         <div className="space-y-5 text-gray-300 leading-relaxed text-[1.05rem]">
           <p>
-            A 23 year old CS Undergrad who loves to build products and sky rocket brands!
-            Got introduced to crypto during covid, got my first industry breakthrough in my sophomore year (2k22), and now there's nooooo turning back.
+            Into Growth Engineering and Marketing. Love Crypto.
           </p>
 
           <p>
-            Till date I've been lucky to wear multiple hats, ranging from development and research analysis to PM, BD, and Growth. And honestly? I love em all.
-            Soaking in everything with an open mind with one goal in mind: becoming the best crypto polymath 🧙
+            I've worked on campaigns and product initiatives reaching 10M+ impressions, supported products serving 250K+ Web3 users, crafted funnels converting ~100k$ in deposits in a few days (this was during the bear market).
           </p>
 
           <p>
-            Right now, I'm locked into Growth and Product roles.
+            Developed AI pipelines during early GPT3.0 days and helped communicate infrastructure responsible for 100M+ notifications. A few of my written works have generated 50,000+ monthly views.
           </p>
 
           <p>
-            Though crypto takes up 7/4th of my day, whether it's work, research, or trenching. When it's time to touch grass, you'll find me:
+            Journey so far: technical content writing -&gt; content analyst &amp; seo -&gt; product management -&gt; growth marketer -&gt; growth lead.
           </p>
 
-          <ul className="pl-2 space-y-1">
-            <li>⚽ Playing football (<em>Man City for life!</em>)</li>
-            <li>📺 Binge-watching <em>Suits</em></li>
-            <li>🚗 Going on long drives with my pals</li>
-            <li>🍞 Studying economics <em>(new hoob..it's really cool!)</em></li>
-          </ul>
+          <p>
+            My background is in computer science, but much of my work has been around figuring out how complex crypto products can be positioned, distributed, and turned into products people actually want to use.
+          </p>
 
           <p>
-            My near-term goal? To contribute my best towards building the Internet Capital Markets, try not to tear my ACL again, and become best friends with Gary Vee.
+            Weekends are reserved for football! (few of my friends prefer to call it soccer, but thats fine :))
           </p>
         </div>
 
+        {/* Retardness Timeline - temporarily hidden
         <div className="flex justify-center mt-10">
           <TimelineModal
             title="My Retardness Timeline"
@@ -68,6 +64,7 @@ export default function AboutPage() {
             buttonClassName="relative group overflow-hidden px-8 py-3 rounded-full bg-[#1e1e2e] text-white font-medium shadow-lg hover:shadow-purple-500/20 transition-all duration-300 border border-purple-500/30"
           />
         </div>
+        */}
 
         <div className="mt-10 pt-8 border-t border-gray-800 flex justify-center gap-8">
           <a href="https://x.com/sidisgame" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">

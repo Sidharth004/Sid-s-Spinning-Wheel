@@ -1,12 +1,12 @@
 // Modal.tsx
 import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
-import { TimelineModal } from "./timeline-modal";
+// import { TimelineModal } from "./timeline-modal";
 import GitHubContributions from "./GitHubContributions";
 import { SideQuestsModal } from "./side-quests-modal";
 import { GrowthJamsModal } from "./growth-jams";
 import type { AboutContent, Experience, Contact, WritingContent, SideQuest, GrowthJam, Achievement } from "@/data/portfolio"
-import { milestones } from "@/data/portfolio"
+// import { milestones } from "@/data/portfolio"
 
 interface ModalProps {
   isOpen: boolean;
@@ -172,34 +172,30 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
 
           <div className="space-y-4 text-gray-700">
             <p className="leading-relaxed">
-              A 23 year old CS Undergrad who loves to build products and sky rocket brands!
-              Got introduced to crypto during covid, got my first industry breakthrough in my sophomore year (2k22), and now there's nooooo turning back.
+              Into Growth Engineering and Marketing. Love Crypto.
             </p>
 
             <p className="leading-relaxed">
-              Till date I've been lucky to wear multiple hats, ranging from development and research analysis to PM, BD, and Growth. And honestly? I love em all.
-              Soaking in everything with an open mind with one goal in mind: becoming the best crypto polymath 🧙
+              I've worked on campaigns and product initiatives reaching 10M+ impressions, supported products serving 250K+ Web3 users, crafted funnels converting ~100k$ in deposits in a few days (this was during the bear market).
             </p>
 
             <p className="leading-relaxed">
-              Right now, I'm Locked into Growth and Product roles.
+              Developed AI pipelines during early GPT3.0 days and helped communicate infrastructure responsible for 100M+ notifications. A few of my written works have generated 50,000+ monthly views.
             </p>
 
             <p className="leading-relaxed">
-              Though crypto takes up 7/4th of my day, whether it's work, research, or trenching. When it's time to touch grass, you'll find me:
+              Journey so far: technical content writing -&gt; content analyst &amp; seo -&gt; product management -&gt; growth marketer -&gt; growth lead.
             </p>
-
-            <div className="pl-6 space-y-2">
-              <p>⚽ Playing football (<em>Man City for life!</em>)</p>
-              <p>📺 Binge-watching <em>Suits</em></p>
-              <p>🚗 Going on long drives with my pals</p>
-              <p>🍞 Studying economics <em>(new hoob..its really cool!)</em></p>
-            </div>
 
             <p className="leading-relaxed">
-              My near-term goal? To contribute my best towards building the Internet Capital Markets, try not to tear my ACL again, and become best friends with Gary Vee.
+              My background is in computer science, but much of my work has been around figuring out how complex crypto products can be positioned, distributed, and turned into products people actually want to use.
             </p>
 
+            <p className="leading-relaxed">
+              Weekends are reserved for football! (few of my friends prefer to call it soccer, but thats fine :))
+            </p>
+
+            {/* Retardness Timeline - temporarily hidden
              <div className="flex justify-center mt-6">
               <TimelineModal
                 title="My Retardness Timeline"
@@ -212,6 +208,7 @@ export function Modal({ isOpen, onClose, title, content, type = 'default' }: Mod
                 buttonClassName="relative group overflow-hidden px-8 py-3 rounded-full bg-[#121220] text-white font-medium shadow-lg hover:shadow-purple-500/20 transition-all duration-300 border border-purple-500/30"
               />
             </div>
+            */}
             </div>
 
 
